@@ -6,13 +6,20 @@ using Remember.Models;
 
 namespace Remember.Repositories
 {
+    public static class DbContext
+    {
+        public static List<CategoryModel> Categories { get; set; }
+
+
+    }
+
     public class MockCategoryRepository : ICategoryRepository
     {
-        private List<CategoryModel> _list;
+
 
         public MockCategoryRepository()
         {
-            _list = new List<CategoryModel> {
+            DbContext.Categories = new List<CategoryModel> {
             new CategoryModel {
                 Name = "Compras Coto",
                 Order = 1,
@@ -54,7 +61,7 @@ namespace Remember.Repositories
         }
         public List<CategoryModel> GetAll()
         {
-            return _list;
+            return DbContext.Categories;
         }
 
         public Response<CategoryModel> Insert(CategoryModel rememberZone)
@@ -73,6 +80,68 @@ namespace Remember.Repositories
                 catch (Exception ex)
                 {
                     return new Response<CategoryModel>
+                    {
+                        IsSuccess = false,
+                        Message = ex.Message
+                    };
+                }
+
+            }
+        }
+    }
+
+    public class MockRememberRepository : IRememberRepository
+    {
+        private List<RememberModel> _list;
+
+        public MockRememberRepository()
+        {
+
+        }
+
+        private void GetAllRemembers(CategoryModel category)
+        {
+            _list = new List<RememberModel>();
+            if (DbContext.Categories != null)
+            {
+                foreach (var categorie in DbContext.Categories)
+                {
+                    if (categorie.Id == category.Id)
+                        if (category.Remembers != null)
+                        {
+                            foreach (var remember in categorie.Remembers)
+                            {
+                                _list.Add(remember);
+                            }
+                        }
+
+                }
+            }
+        }
+
+
+        public List<RememberModel> GetAll(CategoryModel category)
+        {
+            GetAllRemembers(category);
+            return _list;
+        }
+
+        public Response<RememberModel> Insert(RememberModel rememberZone)
+        {
+            using (var da = new DataAccess())
+            {
+                try
+                {
+                    da.Insert<RememberModel>(rememberZone);
+                    return new Response<RememberModel>
+                    {
+                        IsSuccess = true,
+                        Result = rememberZone
+                    };
+                }
+                catch (Exception ex)
+                {
+                    return new Response<RememberModel>
                     {
                         IsSuccess = false,
                         Message = ex.Message

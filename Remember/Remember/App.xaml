@@ -6,15 +6,55 @@
              x:Class="Remember.App">
   <Application.Resources>
     <ResourceDictionary>
-      <Color x:Key="MainColor">#192E1E</Color>
-      <Color x:Key="FontColor">#E5BFBB</Color>
+      <Color x:Key="MainColor">#522A2F</Color>
+      <Color x:Key="FontColor">#522A2F</Color>
 
-      <Color x:Key="MenuColor">#366E4E</Color>
-      <Color x:Key="MenuFontColor">#331D3D</Color>
-      <Color x:Key="BackgroundColor">#5A1230</Color>
-      <Color x:Key="AccentColor">#E5BFBB</Color>
+      <Color x:Key="MenuColor">#C4C4C3</Color>
+      <Color x:Key="MenuFontColor">#004234</Color>
+      <Color x:Key="BackgroundColor">#C4C4C3</Color>
+      <Color x:Key="AccentColor">#004234</Color>
 
       <viewModels:LocatorViewModel x:Key="Locator"></viewModels:LocatorViewModel>
+
+
+      <DataTemplate x:Key="CategoriasDataTemplate">
+        <ViewCell>
+          <Grid Padding="8">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image
+            Source="{Binding Image}"
+            VerticalOptions="Start"
+            HeightRequest="100"
+            WidthRequest="100"></Image>
+            <StackLayout Grid.Column="1">
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="8*"></ColumnDefinition>
+                  <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label FontAttributes="Bold"
+                             Margin="20"
+                       Grid.Column="0"
+                       FontSize="28"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource FontColor}"
+                       Text="{Binding Name}"></Label>
+                <Label FontAttributes="Bold"
+                        Margin="20"
+                        Grid.Column="1"
+                        FontSize="28"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource FontColor}"
+                        Text="{Binding CountRemembers}"></Label>
+              </Grid>
+            </StackLayout>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
     </ResourceDictionary>
   </Application.Resources>
 </Application>

@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Remember.Pages.CategoriasList"
                  Title="Remember Zone List"
              BackgroundColor="{StaticResource BackgroundColor}"
-             BindingContext="{Binding RememberZoneListViewModel,Source={StaticResource Locator}}">
+             BindingContext="{Binding CategoryListViewModel,Source={StaticResource Locator}}">
   <StackLayout Orientation="Vertical">
+
     <StackLayout>
       <StackLayout Orientation="Horizontal">
-        <Image
+        <abstractions:CircleImage
+          Margin="10"
                 Source="{Binding LogedUser.Image}"
-                VerticalOptions="Start"
-                HeightRequest="140"
-                WidthRequest="140"></Image>
+                Aspect="AspectFill"
+                HeightRequest="150"
+                WidthRequest="150"></abstractions:CircleImage>
         <StackLayout Orientation="Vertical">
           <Label FontAttributes="Bold"
                               Margin="20"
@@ -36,52 +39,20 @@
         </StackLayout>
       </StackLayout>
     </StackLayout>
-
+    <SearchBar
+          Placeholder="Buscar..."
+          Text="{Binding Filter,Mode=TwoWay}"
+          SearchCommand="{Binding SearchCategoryCommand}"></SearchBar>
     <ListView
-      ItemsSource="{Binding RemembersZones}"
-      HasUnevenRows="True">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <Grid Padding="8">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-              </Grid.ColumnDefinitions>
+      ItemsSource="{Binding CategoryModel,Mode=TwoWay}"
+      HasUnevenRows="True"
+      SelectedItem="{Binding CategorySelected}"
+      ItemTemplate="{StaticResource CategoriasDataTemplate}">
 
+      <ListView.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding SelectCategoryCommand}"></TapGestureRecognizer>
+      </ListView.GestureRecognizers>
 
-              <Image
-              Source="{Binding Image}"
-              VerticalOptions="Start"
-              HeightRequest="100"
-              WidthRequest="100"></Image>
-              <StackLayout Grid.Column="1">
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                  </Grid.ColumnDefinitions>
-
-                  <Label FontAttributes="Bold"
-                               Margin="20"
-                         Grid.Column="0"
-                         FontSize="28"
-                         VerticalOptions="Center"
-                         TextColor="{StaticResource FontColor}"
-                         Text="{Binding Name}"></Label>
-                  <Label FontAttributes="Bold"
-                          Margin="20"
-                          Grid.Column="1"
-                          FontSize="28"
-                          VerticalOptions="Center"
-                          TextColor="{StaticResource FontColor}"
-                          Text="{Binding CountRemembers}"></Label>
-                </Grid>
-              </StackLayout>
-            </Grid>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
     </ListView>
 
   </StackLayout>

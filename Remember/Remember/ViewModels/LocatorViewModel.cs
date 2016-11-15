@@ -6,7 +6,10 @@ namespace Remember.ViewModels
     {
         public LoginViewModel LoginViewModel => App.Container.Resolve<LoginViewModel>();
         public MainViewModel MainViewModel => App.Container.Resolve<MainViewModel>();
-        public CategoryListViewModel RememberZoneListViewModel => App.Container.Resolve<CategoryListViewModel>();
+        public CategoryListViewModel CategoryListViewModel => App.Container.Resolve<CategoryListViewModel>();
+        public RememberListViewModel RememberListViewModel => App.Container.Resolve<RememberListViewModel>();
+
+
 
     }
 }

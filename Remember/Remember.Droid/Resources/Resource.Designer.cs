@@ -317,6 +317,18 @@ namespace Remember.Droid
 			// aapt resource value: 0x7f0100b1
 			public const int checkedTextViewStyle = 2130772145;
 			
+			// aapt resource value: 0x7f01013d
+			public const int civ_border_color = 2130772285;
+			
+			// aapt resource value: 0x7f01013e
+			public const int civ_border_overlay = 2130772286;
+			
+			// aapt resource value: 0x7f01013c
+			public const int civ_border_width = 2130772284;
+			
+			// aapt resource value: 0x7f01013f
+			public const int civ_fill_color = 2130772287;
+			
 			// aapt resource value: 0x7f0100d3
 			public const int closeIcon = 2130772179;
 			
@@ -4968,6 +4980,24 @@ namespace Remember.Droid
 			
 			// aapt resource value: 11
 			public const int CardView_contentPaddingTop = 11;
+			
+			public static int[] CircleImageView = new int[] {
+					2130772284,
+					2130772285,
+					2130772286,
+					2130772287};
+			
+			// aapt resource value: 1
+			public const int CircleImageView_civ_border_color = 1;
+			
+			// aapt resource value: 2
+			public const int CircleImageView_civ_border_overlay = 2;
+			
+			// aapt resource value: 0
+			public const int CircleImageView_civ_border_width = 0;
+			
+			// aapt resource value: 3
+			public const int CircleImageView_civ_fill_color = 3;
 			
 			public static int[] CollapsingAppBarLayout_LayoutParams = new int[] {
 					2130772220,

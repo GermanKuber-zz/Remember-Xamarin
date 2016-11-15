@@ -19,7 +19,16 @@ namespace Remember.Models
 
         public string Image { get; set; }
 
-        public int CountRemembers { get; set; }
+        public int CountRemembers
+        {
+            get
+            {
+                if (this.Remembers != null)
+                    return this.Remembers.ToList().Count;
+                else
+                    return 0;
+            }
+        }
         public string Name { get; set; }
         public int Order { get; set; }
 

@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Remember.Pages.LoginPage"
              Title="Remember"
-             BackgroundColor="{StaticResource MainColor}"
+             BackgroundColor="{StaticResource BackgroundColor}"
              BindingContext="{Binding LoginViewModel,Source={StaticResource Locator}}">
   <StackLayout
     Padding="10" Spacing="20">
     <Label
          Text="Remember This"
-         TextColor="{StaticResource BackgroundColor}"
+         TextColor="{StaticResource MainColor}"
          FontSize="24"
          FontAttributes="Bold"
          HorizontalOptions="Center"
@@ -21,7 +21,7 @@
            VerticalOptions="Center"></Image>
     <BoxView
       HeightRequest="3"
-      Color="{StaticResource BackgroundColor}"></BoxView>
+      Color="{StaticResource MainColor}"></BoxView>
     <Entry
           IsEnabled="True"
           Placeholder="Email"
@@ -36,7 +36,7 @@
           TextColor="{StaticResource FontColor}"></Entry>
     <Button Text="Login"
             Command="{Binding LoginCommand}"
-            BackgroundColor="{StaticResource BackgroundColor}"
+            BackgroundColor="{StaticResource MainColor}"
             HorizontalOptions="Center"
             VerticalOptions="Center"></Button>
     <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
@@ -44,7 +44,7 @@
     </ActivityIndicator>
     <StackLayout Orientation="Horizontal">
       <Label Text="Recuerdame"
-             TextColor="{StaticResource BackgroundColor}"
+             TextColor="{StaticResource MainColor}"
              HorizontalOptions="Center"
              VerticalOptions="Center"></Label>
       <Switch

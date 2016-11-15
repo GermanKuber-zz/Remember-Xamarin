@@ -35,6 +35,9 @@ namespace Remember.Services
                 case "Remember":
                     await this._navigationPage.PushAsync(new RememberPage());
                     break;
+                case "RememberList":
+                    await this._navigationPage.PushAsync(new RememberList());
+                    break;
                 case "Logout":
                     Logout();
                     break;
