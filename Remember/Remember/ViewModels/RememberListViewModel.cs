@@ -23,7 +23,6 @@ namespace Remember.ViewModels
             get
             {
                 return _newRemember;
-
             }
             set
             {
@@ -72,12 +71,13 @@ namespace Remember.ViewModels
         public void SetParameter(CategoryModel parameter)
         {
             this.Parameter = parameter;
-
+            this.NewRemember = string.Empty;
             SetRemembers(parameter.Remembers);
         }
 
         private void SetRemembers(List<RememberModel> parameter)
         {
+
             if (parameter != null)
             {
                 if (Remembers == null)
@@ -88,6 +88,13 @@ namespace Remember.ViewModels
                 {
                     Remembers.Add(parameterRemember);
                 }
+            }
+            else
+            {
+                if (Remembers == null)
+                    Remembers = new ObservableCollection<RememberModel>();
+                else
+                    Remembers.Clear();
             }
         }
 

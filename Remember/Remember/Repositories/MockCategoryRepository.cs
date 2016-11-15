@@ -23,6 +23,7 @@ namespace Remember.Repositories
             new CategoryModel {
                 Name = "Compras Coto",
                 Order = 1,
+                Id = 1,
                 Active = true,
                 Image = "http://america-retail.com/static/2012/05/Logo-Dir-Arg-Coto.jpg",
                 Remembers = new List<RememberModel> {
@@ -48,14 +49,17 @@ namespace Remember.Repositories
             },   new CategoryModel {
                 Name = "Chino",
                 Order = 1,
+                     Id = 2,
                 Active = true
             },   new CategoryModel {
                 Name = "Compras Coto",
                 Order = 1,
+                     Id = 3,
                 Active = true
             },   new CategoryModel {
                 Name = "Compras Coto",
                 Order = 1,
+                     Id = 4,
                 Active = true
             }};
         }
@@ -107,6 +111,8 @@ namespace Remember.Repositories
                 foreach (var categorie in DbContext.Categories)
                 {
                     if (categorie.Id == category.Id)
+                    {
+
                         if (category.Remembers != null)
                         {
                             foreach (var remember in categorie.Remembers)
@@ -114,6 +120,7 @@ namespace Remember.Repositories
                                 _list.Add(remember);
                             }
                         }
+                    }
 
                 }
             }

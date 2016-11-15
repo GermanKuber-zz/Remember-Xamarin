@@ -1,7 +1,5 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using Remember.Pages;
-using Remember.Services;
 using Remember.Services.Interfaces;
 
 namespace Remember.ViewModels
