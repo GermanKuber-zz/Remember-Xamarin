@@ -27,5 +27,10 @@ namespace Remember.Services
 
             }
         }
+
+        public void SetMainPage()
+        {
+            App.Current.MainPage = new MasterPage();
+        }
     }
 }

@@ -12,13 +12,14 @@ namespace Remember.ViewModels
         #region Properties
 
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
+        public LoginViewModel LoginViewModel { get; set; }
         #endregion
 
         #region Constructors
 
         public MainViewModel()
         {
-
+            this.LoginViewModel = new LoginViewModel();
             LoadMenu();
         }
 
