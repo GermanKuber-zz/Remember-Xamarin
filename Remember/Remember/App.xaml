@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Remember.Infraestructure;assembly=Remember"
+             x:Class="Remember.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <Color x:Key="MainColor">#192E1E</Color>
+      <Color x:Key="FontColor">#E5BFBB</Color>
+
+      <Color x:Key="MenuColor">#366E4E</Color>
+      <Color x:Key="MenuFontColor">#331D3D</Color>
+      <Color x:Key="BackgroundColor">#5A1230</Color>
+      <Color x:Key="AccentColor">#E5BFBB</Color>
+
+      <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
