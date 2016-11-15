@@ -2,9 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using Prism.Logging;
 using Remember.Models;
-using Remember.Pages;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation;
 

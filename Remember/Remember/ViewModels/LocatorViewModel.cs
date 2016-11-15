@@ -8,6 +8,7 @@ namespace Remember.ViewModels
         public MainViewModel MainViewModel => App.Container.Resolve<MainViewModel>();
         public CategoryListViewModel CategoryListViewModel => App.Container.Resolve<CategoryListViewModel>();
         public RememberListViewModel RememberListViewModel => App.Container.Resolve<RememberListViewModel>();
+        public MapViewModel MapViewModel => App.Container.Resolve<MapViewModel>();
 
 
 

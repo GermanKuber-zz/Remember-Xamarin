@@ -62,6 +62,7 @@ namespace Remember
             Container.RegisterType<MenuItemViewModel>(new PerResolveLifetimeManager());
             Container.RegisterType<CategoryListViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<RememberListViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<MapViewModel>(new ContainerControlledLifetimeManager());
 
 
             var unityServiceLocator = new UnityServiceLocator(Container);

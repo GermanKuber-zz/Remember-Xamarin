@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Remember.Pages.Map"
                Title="Map"
              BackgroundColor="{StaticResource BackgroundColor}"
-             BindingContext="{Binding Main,Source={StaticResource Locator}}">
-  <Label Text="Map" VerticalOptions="Center" HorizontalOptions="Center" />
+             BindingContext="{Binding MapViewModel,Source={StaticResource Locator}}">
+  <maps:Map
+    WidthRequest="320"
+    HeightRequest="200"
+    x:Name="MyMap"
+    IsShowingUser="True"
+    MapType="Hybrid">
+
+  </maps:Map>
 </ContentPage>
