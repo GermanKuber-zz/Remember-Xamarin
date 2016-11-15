@@ -4,9 +4,8 @@
              x:Class="Remember.Pages.LoginPage"
              Title="Remember"
              BackgroundColor="{StaticResource MainColor}"
-             BindingContext="{Binding Main,Source={StaticResource Locator}}">
+             BindingContext="{Binding LoginViewModel,Source={StaticResource Locator}}">
   <StackLayout
-    BindingContext="{Binding LoginViewModel}"
     Padding="10" Spacing="20">
     <Label
          Text="Remember This"

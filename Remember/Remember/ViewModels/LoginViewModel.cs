@@ -1,15 +1,17 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using Remember.Pages;
 using Remember.Services;
+using Remember.Services.Interfaces;
 
 namespace Remember.ViewModels
 {
     public class LoginViewModel : NotificationChangedBase
     {
-        private readonly NavigationService _navigationService;
-        private readonly DialogService _dialogService;
-        private readonly LoginService _loginService;
-        private readonly DataService _dataService;
+        private readonly INavigationService _navigationService;
+        private readonly IDialogService _dialogService;
+        private readonly ILoginService _loginService;
+
         #region Properties
 
         private string _email;
@@ -65,10 +67,12 @@ namespace Remember.ViewModels
                 return;
             }
             this.IsRunning = true;
-            if ((await _loginService.Login(Email, Password, IsRemembered)).IsSuccess)
-                _navigationService.SetMainPage();
+            var user = _loginService.Login(Email, Password, IsRemembered);
+            if (user.IsSuccess)
+                _navigationService.SetMasterPage();
             else
                 await _dialogService.ShowMessage("Error", "Intente nuevamente");
+            this.IsRunning = false;
         }
 
         #endregion
@@ -76,12 +80,13 @@ namespace Remember.ViewModels
 
         #region Constructors
 
-        public LoginViewModel()
+        public LoginViewModel(INavigationService navigationService,
+            ILoginService loginService,
+            IDialogService dialogService)
         {
-            _navigationService = new NavigationService();
-            _dialogService = new DialogService();
-            _loginService = new LoginService();
-            _dataService = new DataService();
+            _navigationService = navigationService;
+            _loginService = loginService;
+            _dialogService = dialogService;
         }
 
         #endregion

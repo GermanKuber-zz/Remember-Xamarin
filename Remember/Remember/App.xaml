@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:infra="clr-namespace:Remember.Infraestructure;assembly=Remember"
+             xmlns:viewModels="clr-namespace:Remember.ViewModels;assembly=Remember"
+
              x:Class="Remember.App">
   <Application.Resources>
     <ResourceDictionary>
@@ -13,7 +14,7 @@
       <Color x:Key="BackgroundColor">#5A1230</Color>
       <Color x:Key="AccentColor">#E5BFBB</Color>
 
-      <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+      <viewModels:LocatorViewModel x:Key="Locator"></viewModels:LocatorViewModel>
     </ResourceDictionary>
   </Application.Resources>
 </Application>

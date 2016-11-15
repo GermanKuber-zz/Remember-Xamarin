@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using Remember.Services;
+using Remember.Services.Interfaces;
 
 namespace Remember.ViewModels
 {
@@ -14,19 +10,21 @@ namespace Remember.ViewModels
 
         #region Attributes
 
-        private readonly NavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
 
-        public MenuItemViewModel()
+        public MenuItemViewModel(INavigationService navigationService)
         {
-            this._navigationService = new NavigationService();
+            _navigationService = navigationService;
         }
+
 
         #endregion
         #region Properties
         public string Title { get; set; }
         public string Icon { get; set; }
         public string PageName { get; set; }
+        public Xamarin.Forms.Page Page { get; set; }
         #endregion
 
 
@@ -38,7 +36,7 @@ namespace Remember.ViewModels
 
         private async void Navigate()
         {
-            await _navigationService.Navigate(PageName);
+            await _navigationService.Navigate(this);
         }
 
         #endregion

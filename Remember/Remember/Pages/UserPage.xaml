@@ -4,9 +4,24 @@
              x:Class="Remember.Pages.UserPage"
              Title="Rememeber"
   BackgroundColor="{StaticResource BackgroundColor}">
-  <Label
-    Text="User Page"
-    TextColor="{StaticResource FontColor}"
-    VerticalOptions="Center"
-    HorizontalOptions="Center" />
+  <StackLayout
+    BindingContext="{Binding UserLoged}"
+    VerticalOptions="CenterAndExpand"
+    Spacing="10"
+    Padding="8">
+    <Label
+  Text="Bienvenid@"
+  FontSize="18"
+  TextColor="{StaticResource FontColor}"
+  VerticalOptions="Center"
+  HorizontalOptions="Center" />
+    <Label
+  Text="{Binding Email}"
+  FontSize="24"
+  FontAttributes="Bold"
+  TextColor="{StaticResource AccentColor}"
+  VerticalOptions="Center"
+  HorizontalOptions="Center" />
+  </StackLayout>
+
 </ContentPage>

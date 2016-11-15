@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Remember.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace Remember.Pages
 {
     public partial class MasterPage : MasterDetailPage
     {
+        private readonly INavigationService _navigationService;
+
+        public MasterPage(INavigationService navigationService)
+        {
+            InitializeComponent();
+            _navigationService = navigationService;
+        }
+
         public MasterPage()
         {
+
             InitializeComponent();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            App.Navigator = Navigator;
-            App.Master = this;
+            _navigationService.SetRequirement(this, Navigator);
         }
     }
 }

@@ -9,9 +9,9 @@
   <MasterDetailPage.Detail>
     <NavigationPage x:Name="Navigator" BackgroundColor="{StaticResource MainColor}">
       <x:Arguments>
-        <pages:UserPage>
+        <pages:CategoriasList>
 
-        </pages:UserPage>
+        </pages:CategoriasList>
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

@@ -1,54 +1,105 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Remember.Data;
-using Remember.Model;
+using Remember.Models;
+using Remember.Services.Interfaces;
 
 namespace Remember.Services
 {
-    public class DataService
+    public class DataService : IDataService
     {
-        public Response<User> InsertUser(User user)
+        public Response<T> Update<T>(T data)
         {
             try
             {
                 using (var da = new DataAccess())
                 {
-                    var oldUser = da.First<User>(false);
-                    if (oldUser != null)
-                    {
-                        da.Delete(oldUser);
-                    }
-                    da.Insert(user);
+
+                    da.Update(data);
                 }
-                return new Response<User>
+                return new Response<T>
                 {
                     IsSuccess = true,
-                    Message = "Usuario Insertado OK!",
-                    Result = user
+                    Message = "Actualizado OK!",
+                    Result = data
                 };
             }
             catch (Exception ex)
             {
-                return new Response<User>
+                return new Response<T>
                 {
                     IsSuccess = false,
-                    Message = ex.Message,
-                    Result = null
+                    Message = ex.Message
                 };
                 throw;
             }
         }
-        public User GetUser()
+        public Response<T> Insert<T>(T data) where T : class
+        {
+            try
+            {
+                using (var da = new DataAccess())
+                {
+                    var oldData = da.First<T>(false);
+                    if (oldData != null)
+                    {
+                        da.Delete(oldData);
+                    }
+                    da.Insert(data);
+                }
+                return new Response<T>
+                {
+                    IsSuccess = true,
+                    Message = "Insertado OK!",
+                    Result = data
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response<T>
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+                throw;
+            }
+        }
+        public Response<T> Delete<T>(T data) where T : class
+        {
+            try
+            {
+                using (var da = new DataAccess())
+                {
+                    var oldData = da.First<T>(false);
+                    if (oldData != null)
+                    {
+                        da.Delete(oldData);
+                    }
+                }
+                return new Response<T>
+                {
+                    IsSuccess = true,
+                    Message = "Eliminado OK!",
+                    Result = data
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response<T>
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+                throw;
+            }
+        }
+        public T GetFirst<T>() where T : class
         {
             try
             {
                 using (var da = new DataAccess())
                 {
 
-                    return da.First<User>(false);
+                    return da.First<T>(false);
 
                 }
 
@@ -56,7 +107,7 @@ namespace Remember.Services
             catch (Exception ex)
             {
 
-                throw;
+
             }
             return null;
         }

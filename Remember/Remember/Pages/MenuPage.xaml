@@ -5,7 +5,7 @@
              x:Class="Remember.Pages.MenuPage"
              Title="Menú"
              BackgroundColor="{StaticResource MenuColor}"
-             BindingContext="{Binding Main,Source={StaticResource Locator}}">
+             BindingContext="{Binding MainViewModel,Source={StaticResource Locator}}">
   <StackLayout Padding="8">
     <StackLayout Orientation="Horizontal">
       <Label
