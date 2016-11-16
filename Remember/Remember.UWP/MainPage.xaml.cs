@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-namespace Remember.UWP
+﻿namespace Remember.UWP
 {
     public sealed partial class MainPage
     {
@@ -22,7 +7,7 @@ namespace Remember.UWP
             this.InitializeComponent();
 
             LoadApplication(new Remember.App());
-            Xamarin.FormsMaps.Init("AIzaSyCo88HM3M0gARnrKoWzrztQy0sLxvkjGuc");
+            Xamarin.FormsMaps.Init("lazawWnLCeGltPQdpejM~_TxVThChleFs5RTi-xA0wA~AuPqYlwzOPCVAodBaxB7Uew5g5zbK6nRBUVZsZQ3PzeTOhHq5Z-1ia6ty9RI73Dm");
         }
     }
 }

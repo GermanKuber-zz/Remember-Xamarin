@@ -11,7 +11,7 @@
     HeightRequest="200"
     x:Name="MyMap"
     IsShowingUser="True"
-    MapType="Hybrid">
+    MapType="Street">
 
   </maps:Map>
 </ContentPage>

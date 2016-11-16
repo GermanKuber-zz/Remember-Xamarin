@@ -17,11 +17,11 @@ namespace Remember.UWP
         {
         }
 
-        public SQLite.SQLiteConnection GetConnection()
+        public SQLiteConnection GetConnection()
         {
             var sqliteFilename = "TodoSQLite.db3";
             string path = Path.Combine(ApplicationData.Current.LocalFolder.Path, sqliteFilename);
-            var conn = new SQLite.SQLiteConnection(path);
+            var conn = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             return conn;
         }
 

@@ -1,11 +1,10 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Remember.Interfaces;
 using Remember.Models;
-using SQLite;
+using SQLite.Net;
+using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
 
 namespace Remember.Data
@@ -22,9 +21,6 @@ namespace Remember.Data
             _connection.CreateTable<User>();
             _connection.CreateTable<CategoryModel>();
             _connection.CreateTable<RememberModel>();
-
-
-
         }
 
         public void Insert<T>(T model)
@@ -42,25 +38,40 @@ namespace Remember.Data
             _connection.Delete(model);
         }
 
-        public T First<T>(bool WithChildren) where T : class, new()
+        public T First<T>(bool WithChildren) where T : class
         {
-
-            return _connection.Table<T>().FirstOrDefault();
-
+            if (WithChildren)
+            {
+                return _connection.GetAllWithChildren<T>().FirstOrDefault();
+            }
+            else
+            {
+                return _connection.Table<T>().FirstOrDefault();
+            }
         }
 
-        public List<T> GetList<T>(bool WithChildren) where T : class, new()
+        public List<T> GetList<T>(bool WithChildren) where T : class
         {
-
-            return _connection.Table<T>().ToList();
-
+            if (WithChildren)
+            {
+                return _connection.GetAllWithChildren<T>().ToList();
+            }
+            else
+            {
+                return _connection.Table<T>().ToList();
+            }
         }
 
-        public T Find<T>(int pk, bool WithChildren) where T : class, new()
+        public T Find<T>(int pk, bool WithChildren) where T : class
         {
-
-            return _connection.Table<T>().FirstOrDefault(m => m.GetHashCode() == pk);
-
+            if (WithChildren)
+            {
+                return _connection.GetAllWithChildren<T>().FirstOrDefault(m => m.GetHashCode() == pk);
+            }
+            else
+            {
+                return _connection.Table<T>().FirstOrDefault(m => m.GetHashCode() == pk);
+            }
         }
 
         public void Dispose()

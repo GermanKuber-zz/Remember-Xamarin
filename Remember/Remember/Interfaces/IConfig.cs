@@ -1,6 +1,6 @@
 ﻿
 
-using SQLite;
+using SQLite.Net;
 
 namespace Remember.Interfaces
 {
