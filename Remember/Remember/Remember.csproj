@@ -40,6 +40,8 @@
     </Compile>
     <Compile Include="Behavior\BehaviorBase.cs" />
     <Compile Include="Behavior\EventToCommandBehavior.cs" />
+    <Compile Include="Common\FileHelper.cs" />
+    <Compile Include="Common\Utilities.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Infraestructure\InstanceLocator.cs" />
     <Compile Include="Interfaces\Cross\INetworkConnection.cs" />
@@ -76,6 +78,9 @@
     <Compile Include="Pages\CategoriasList.xaml.cs">
       <DependentUpon>CategoriasList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Remember\CompleteRememberPage.xaml.cs">
+      <DependentUpon>CompleteRememberPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Remember\NewRememberPage.xaml.cs">
       <DependentUpon>NewRememberPage.xaml</DependentUpon>
     </Compile>
@@ -99,15 +104,20 @@
     <Compile Include="Services\Interfaces\INavigationService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
     <Compile Include="Services\IRememberService.cs" />
+    <Compile Include="Services\Interfaces\IScanService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MenuFactory.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\Navigation\CompleteRememberPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\ICompleteRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\INewRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
     <Compile Include="Services\Navigation\NewRememberPageView.cs" />
     <Compile Include="Services\Navigation\RememberPageView.cs" />
     <Compile Include="Services\NetService.cs" />
+    <Compile Include="Services\ScanService.cs" />
+    <Compile Include="ViewModels\Remembers\CompleteRememberViewModel.cs" />
     <Compile Include="ViewModels\LocatorViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -238,6 +248,18 @@
       <HintPath>..\..\packages\XLabs.Serialization.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.portable, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\zxing.portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -307,6 +329,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Remember\NewRememberPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Remember\CompleteRememberPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

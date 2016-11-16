@@ -6,6 +6,9 @@
              x:Class="Remember.Pages.RememberList"          Title="Remember This"
              BackgroundColor="{StaticResource BackgroundColor}"
              BindingContext="{Binding RememberListViewModel,Source={StaticResource Locator}}">
+  <!--<ContentPage.Behaviors>
+    <global:EventToCommandBehavior EventName="Appearing" Command="{Binding RefreshCommand}"></global:EventToCommandBehavior>
+  </ContentPage.Behaviors>-->
   <StackLayout Orientation="Vertical">
 
     <Label FontAttributes="Bold"
@@ -26,7 +29,9 @@
     </Entry>
 
     <ListView
+      IsPullToRefreshEnabled="True"
       ItemsSource="{Binding Remembers,Mode=TwoWay}"
+      SelectedItem="{Binding RememberSelected}"
       HasUnevenRows="True">
       <ListView.ItemTemplate>
 

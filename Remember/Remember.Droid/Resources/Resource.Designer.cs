@@ -29,6 +29,9 @@ namespace Remember.Droid
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Remember.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Remember.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Remember.Droid.Resource.Attribute.actionBarSize;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Remember.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Remember.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Remember.Droid.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -2487,11 +2490,14 @@ namespace Remember.Droid
 			// aapt resource value: 0x7f0200cf
 			public const int mr_ic_play_light = 2130837711;
 			
-			// aapt resource value: 0x7f0200d1
-			public const int notification_template_icon_bg = 2130837713;
+			// aapt resource value: 0x7f0200d2
+			public const int notification_template_icon_bg = 2130837714;
 			
 			// aapt resource value: 0x7f0200d0
 			public const int remember = 2130837712;
+			
+			// aapt resource value: 0x7f0200d1
+			public const int scanner = 2130837713;
 			
 			static Drawable()
 			{
@@ -2604,6 +2610,9 @@ namespace Remember.Droid
 			
 			// aapt resource value: 0x7f0a002a
 			public const int collapseActionView = 2131361834;
+			
+			// aapt resource value: 0x7f0a00a5
+			public const int contentFrame = 2131361957;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int contentPanel = 2131361877;
@@ -3249,6 +3258,12 @@ namespace Remember.Droid
 			
 			// aapt resource value: 0x7f030038
 			public const int Toolbar = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int zxingscanneractivitylayout = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int zxingscannerfragmentlayout = 2130903098;
 			
 			static Layout()
 			{

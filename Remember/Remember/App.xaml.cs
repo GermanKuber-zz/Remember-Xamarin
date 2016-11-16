@@ -56,6 +56,8 @@ namespace Remember
         {
             Container.RegisterType<IRememberPageView, RememberPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<INewRememberPageView, NewRememberPageView>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ICompleteRememberPageView, CompleteRememberPageView>(new ContainerControlledLifetimeManager());
+
 
         }
 
@@ -63,6 +65,8 @@ namespace Remember
         {
             Container.RegisterType<ICategoryRepository, MockCategoryRepository>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IRememberRepository, MockRememberRepository>(new ContainerControlledLifetimeManager());
+
+
         }
 
         private static void RegisterServices()
@@ -76,6 +80,8 @@ namespace Remember
             Container.RegisterType<ICategoryService, CategoryService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IRememberService, RememberService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<INetService, NetService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IScanService, ScanService>(new ContainerControlledLifetimeManager());
+
         }
 
         private static void RegisterViewModel()
@@ -88,6 +94,9 @@ namespace Remember
             Container.RegisterType<MapViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<NewRememberViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<UserHeaderViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<CompleteRememberViewModel>(new ContainerControlledLifetimeManager());
+
+
         }
 
         #region Properties

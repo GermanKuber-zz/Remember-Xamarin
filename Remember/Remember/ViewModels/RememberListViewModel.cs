@@ -16,8 +16,16 @@ namespace Remember.ViewModels
         private readonly ILoginService _loginService;
         private readonly IRememberService _rememberService;
         private readonly INewRememberPageView _newRememberPageView;
+        private readonly ICompleteRememberPageView _completeRememberPageView;
 
         public ICommand NewRememberCommand => new RelayCommand(NewRememberAction);
+        public ICommand RefreshCommand => new RelayCommand(RefreshRemembers);
+
+        private void RefreshRemembers()
+        {
+
+        }
+
         #region Properties
 
         private string _newRemember;
@@ -41,8 +49,14 @@ namespace Remember.ViewModels
 
             if (remember == null)
                 _newRememberPageView.Navigate(this.Parameter);
-            //else
-            //    //TODO: Si existe el remember debe de editarse el existente
+            else
+                NavigateCompleteRemember(remember);
+
+        }
+
+        private void NavigateCompleteRemember(RememberModel remember)
+        {
+            _completeRememberPageView.Navigate(remember);
         }
 
         private RememberModel _rememberModel;
@@ -57,6 +71,8 @@ namespace Remember.ViewModels
             {
                 _rememberModel = value;
                 OnPropertyChanged();
+                if (value != null)
+                    NavigateCompleteRemember(this.RememberSelected);
 
             }
         }
@@ -109,11 +125,15 @@ namespace Remember.ViewModels
             }
         }
 
-        public RememberListViewModel(ILoginService loginService, IRememberService rememberService, INewRememberPageView newRememberPageView)
+        public RememberListViewModel(ILoginService loginService,
+            IRememberService rememberService,
+            INewRememberPageView newRememberPageView,
+            ICompleteRememberPageView completeRememberPageView)
         {
             _loginService = loginService;
             _rememberService = rememberService;
             _newRememberPageView = newRememberPageView;
+            _completeRememberPageView = completeRememberPageView;
         }
 
         private void SearchRemember()

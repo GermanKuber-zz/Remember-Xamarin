@@ -1,5 +1,6 @@
 ﻿
 
+using System.Threading.Tasks;
 using SQLite.Net;
 
 namespace Remember.Interfaces
@@ -13,4 +14,9 @@ namespace Remember.Interfaces
     {
         SQLiteConnection GetConnection();
     }
+    public interface IQrCodeScanningService
+    {
+        Task<string> ScanAsync();
+    }
+
 }

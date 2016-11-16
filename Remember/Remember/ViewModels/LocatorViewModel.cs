@@ -13,6 +13,8 @@ namespace Remember.ViewModels
         public MapViewModel MapViewModel => App.Container.Resolve<MapViewModel>();
         public UserHeaderViewModel UserHeaderViewModel => App.Container.Resolve<UserHeaderViewModel>();
         public NewRememberViewModel NewRememberViewModel => App.Container.Resolve<NewRememberViewModel>();
+        public CompleteRememberViewModel CompleteRememberViewModel => App.Container.Resolve<CompleteRememberViewModel>();
+
 
 
 
