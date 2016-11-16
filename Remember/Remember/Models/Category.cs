@@ -31,12 +31,15 @@ namespace Remember.Models
         public int Order { get; set; }
 
         public bool Active { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<RememberModel> Remembers { get; set; }
 
         public DateTime LastExpiration { get; set; }
+        public override int GetHashCode()
+        {
+            return Id;
 
-
+        }
     }
 
 

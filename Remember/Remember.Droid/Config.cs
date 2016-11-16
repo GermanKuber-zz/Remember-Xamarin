@@ -4,7 +4,6 @@ using System.IO;
 using Remember.Droid;
 using Remember.Interfaces;
 using SQLite;
-using SQLite.Net.Platform.XamarinAndroid;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SQLite_Android))]

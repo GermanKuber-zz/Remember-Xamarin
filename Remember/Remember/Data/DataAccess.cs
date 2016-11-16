@@ -20,8 +20,9 @@ namespace Remember.Data
             _connection = config.GetConnection();
             _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
-            _connection.CreateTable<RememberModel>();
             _connection.CreateTable<CategoryModel>();
+            _connection.CreateTable<RememberModel>();
+
 
 
         }

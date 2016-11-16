@@ -1,7 +1,4 @@
-﻿
-
-using System;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace Remember.Models
@@ -19,9 +16,15 @@ namespace Remember.Models
         public bool Active { get; set; }
         public string Note { get; set; }
         public decimal Price { get; set; }
-        //[OneToMany]
-        //public CategoryModel Category { get; set; }
+        [OneToOne]
+        public CategoryModel Category { get; set; }
         [ForeignKey(typeof(CategoryModel))]
         public string CategoryId { get; set; }
+
+        public override int GetHashCode()
+        {
+            return Id;
+
+        }
     }
 }

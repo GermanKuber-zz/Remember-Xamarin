@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using SQLite.Net.Attributes;
-using SQLiteNetExtensions.Attributes;
-
-namespace Remember.Models
+﻿namespace Remember.Models
 {
     public class Response<T>
     {

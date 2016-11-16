@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using SQLite.Net.Attributes;
-using SQLiteNetExtensions.Attributes;
+﻿using SQLite;
 
 namespace Remember.Models
 {
