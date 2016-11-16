@@ -17,8 +17,8 @@ namespace Remember.Models
 
         public bool IsRemember { get; set; }
         public string Password { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Permission> Permissions { get; set; }
+        //[OneToMany(CascadeOperations = CascadeOperation.All)]
+        //public List<Permission> Permissions { get; set; }
 
         public override int GetHashCode()
         {

@@ -1,10 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using SQLite.Net.Attributes;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace Remember.Models
@@ -33,7 +31,7 @@ namespace Remember.Models
         public int Order { get; set; }
 
         public bool Active { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        [OneToMany]
         public List<RememberModel> Remembers { get; set; }
 
         public DateTime LastExpiration { get; set; }

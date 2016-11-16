@@ -22,6 +22,7 @@ namespace Remember.UWP
             this.InitializeComponent();
 
             LoadApplication(new Remember.App());
+            Xamarin.FormsMaps.Init("AIzaSyCo88HM3M0gARnrKoWzrztQy0sLxvkjGuc");
         }
     }
 }

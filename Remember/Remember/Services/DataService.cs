@@ -33,7 +33,7 @@ namespace Remember.Services
                 throw;
             }
         }
-        public Response<T> Insert<T>(T data) where T : class
+        public Response<T> Insert<T>(T data) where T : class, new()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Remember.Services
                 throw;
             }
         }
-        public Response<T> Delete<T>(T data) where T : class
+        public Response<T> Delete<T>(T data) where T : class, new()
         {
             try
             {
@@ -92,7 +92,7 @@ namespace Remember.Services
                 throw;
             }
         }
-        public T GetFirst<T>() where T : class
+        public T GetFirst<T>() where T : class, new()
         {
             try
             {

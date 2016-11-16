@@ -1,12 +1,11 @@
 ﻿
-
 using System.IO;
 using Windows.Storage;
 using Remember.Interfaces;
 using Remember.UWP;
-using SQLite.Net;
-using SQLite.Net.Platform.WinRT;
 using Xamarin.Forms;
+using SQLite.Net;
+using System;
 
 [assembly: Dependency(typeof(SQLite_UWP))]
 
@@ -18,12 +17,13 @@ namespace Remember.UWP
         {
         }
 
-        public SQLiteConnection GetConnection()
+        public SQLite.SQLiteConnection GetConnection()
         {
             var sqliteFilename = "TodoSQLite.db3";
             string path = Path.Combine(ApplicationData.Current.LocalFolder.Path, sqliteFilename);
-            var conn = new SQLiteConnection(new SQLitePlatformWinRT(), path);
+            var conn = new SQLite.SQLiteConnection(path);
             return conn;
         }
+
     }
 }

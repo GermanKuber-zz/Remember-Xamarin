@@ -110,10 +110,10 @@ namespace Remember.Services
 
         private void Recordar(User user)
         {
-            var database = DependencyService.Get<ISQLite>();
+            //var database = DependencyService.Get<ISQLite>();
 
 
-            database.GetConnection().CreateTable<User>();
+            //database.GetConnection().CreateTable<User>();
         }
     }
 }

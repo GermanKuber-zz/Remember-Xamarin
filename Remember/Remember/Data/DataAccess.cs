@@ -1,10 +1,11 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Remember.Interfaces;
 using Remember.Models;
-using SQLite.Net;
-using SQLiteNetExtensions.Extensions;
+using SQLite;
 using Xamarin.Forms;
 
 namespace Remember.Data
@@ -17,9 +18,12 @@ namespace Remember.Data
         {
             var config = DependencyService.Get<ISQLite>();
             _connection = config.GetConnection();
+            _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
-            _connection.CreateTable<CategoryModel>();
             _connection.CreateTable<RememberModel>();
+            _connection.CreateTable<CategoryModel>();
+
+
         }
 
         public void Insert<T>(T model)
@@ -37,40 +41,25 @@ namespace Remember.Data
             _connection.Delete(model);
         }
 
-        public T First<T>(bool WithChildren) where T : class
+        public T First<T>(bool WithChildren) where T : class, new()
         {
-            if (WithChildren)
-            {
-                return _connection.GetAllWithChildren<T>().FirstOrDefault();
-            }
-            else
-            {
-                return _connection.Table<T>().FirstOrDefault();
-            }
+
+            return _connection.Table<T>().FirstOrDefault();
+
         }
 
-        public List<T> GetList<T>(bool WithChildren) where T : class
+        public List<T> GetList<T>(bool WithChildren) where T : class, new()
         {
-            if (WithChildren)
-            {
-                return _connection.GetAllWithChildren<T>().ToList();
-            }
-            else
-            {
-                return _connection.Table<T>().ToList();
-            }
+
+            return _connection.Table<T>().ToList();
+
         }
 
-        public T Find<T>(int pk, bool WithChildren) where T : class
+        public T Find<T>(int pk, bool WithChildren) where T : class, new()
         {
-            if (WithChildren)
-            {
-                return _connection.GetAllWithChildren<T>().FirstOrDefault(m => m.GetHashCode() == pk);
-            }
-            else
-            {
-                return _connection.Table<T>().FirstOrDefault(m => m.GetHashCode() == pk);
-            }
+
+            return _connection.Table<T>().FirstOrDefault(m => m.GetHashCode() == pk);
+
         }
 
         public void Dispose()
