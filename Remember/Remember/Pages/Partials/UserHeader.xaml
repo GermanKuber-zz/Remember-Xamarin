@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:partials="clr-namespace:Remember.Pages.Partials;assembly=Remember"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Remember.Pages.Partials.UserHeader"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding UserHeaderViewModel,Source={StaticResource Locator}}">
+  <StackLayout Orientation="Horizontal">
+    <abstractions:CircleImage
+            Margin="10"
+            Source="{Binding LogedUser.Image}"
+            Aspect="AspectFill"
+            HeightRequest="110"
+            WidthRequest="110"></abstractions:CircleImage>
+    <StackLayout Orientation="Vertical">
+      <Label FontAttributes="Bold"
+                          Margin="20"
+                          Grid.Column="1"
+                          FontSize="28"
+                          VerticalOptions="Center"
+                          TextColor="{StaticResource FontColor}"
+                          Text="{Binding LogedUser.FirstName}"></Label>
+      <StackLayout Orientation="Horizontal">
+        <Image
+        Source="{Binding LogedUser.Image}"
+         VerticalOptions="Start"
+         HeightRequest="50"
+         WidthRequest="50"></Image>
+        <Image
+       Source="{Binding LogedUser.Image}"
+        VerticalOptions="Start"
+        HeightRequest="50"
+        WidthRequest="50"></Image>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</ContentView>

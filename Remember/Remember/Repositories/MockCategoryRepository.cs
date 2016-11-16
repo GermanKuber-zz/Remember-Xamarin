@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Remember.Data;
 using Remember.Models;
 
@@ -131,6 +132,15 @@ namespace Remember.Repositories
         {
             GetAllRemembers(category);
             return _list;
+        }
+
+        public RememberModel GetByExactName(CategoryModel category, string rememberName)
+        {
+            GetAllRemembers(category);
+
+
+
+            return _list.FirstOrDefault(x => x.Name.ToUpper() == rememberName.ToUpper());
         }
 
         public Response<RememberModel> Insert(RememberModel rememberZone)

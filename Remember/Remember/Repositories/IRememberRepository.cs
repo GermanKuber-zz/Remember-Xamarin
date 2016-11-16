@@ -7,5 +7,6 @@ namespace Remember.Repositories
     {
         List<RememberModel> GetAll(CategoryModel category);
         Response<RememberModel> Insert(RememberModel rememberZone);
+        RememberModel GetByExactName(CategoryModel category, string rememberName);
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.Practices.Unity;
+using Remember.ViewModels.Partials;
+using Remember.ViewModels.Remembers;
 
 namespace Remember.ViewModels
 {
@@ -9,6 +11,8 @@ namespace Remember.ViewModels
         public CategoryListViewModel CategoryListViewModel => App.Container.Resolve<CategoryListViewModel>();
         public RememberListViewModel RememberListViewModel => App.Container.Resolve<RememberListViewModel>();
         public MapViewModel MapViewModel => App.Container.Resolve<MapViewModel>();
+        public UserHeaderViewModel UserHeaderViewModel => App.Container.Resolve<UserHeaderViewModel>();
+        public NewRememberViewModel NewRememberViewModel => App.Container.Resolve<NewRememberViewModel>();
 
 
 

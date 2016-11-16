@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Command;
 using Remember.Models;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation;
+using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
@@ -56,6 +57,14 @@ namespace Remember.ViewModels
         #region  Commands
 
         public ICommand SearchCategoryCommand => new RelayCommand(SearchCategory);
+
+        public ICommand NewCategoryCommand => new RelayCommand(NewCategory);
+
+        private void NewCategory()
+        {
+
+        }
+
         public ICommand SelectCategoryCommand => new RelayCommand(SelectCategory);
 
         private void SelectCategory()

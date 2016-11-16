@@ -103,12 +103,20 @@
       <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.4\lib\MonoAndroid10\Plugin.Geolocator.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.7\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+    <Reference Include="Plugin.Media, Version=2.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.7\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Media.Abstractions, Version=2.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -314,6 +322,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

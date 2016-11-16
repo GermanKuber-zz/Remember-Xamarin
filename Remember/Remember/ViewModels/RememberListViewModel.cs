@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Remember.Models;
 using Remember.Services;
 using Remember.Services.Interfaces;
+using Remember.Services.Navigation.Interfaces;
 
 
 namespace Remember.ViewModels
@@ -13,6 +15,7 @@ namespace Remember.ViewModels
     {
         private readonly ILoginService _loginService;
         private readonly IRememberService _rememberService;
+        private readonly INewRememberPageView _newRememberPageView;
 
         public ICommand NewRememberCommand => new RelayCommand(NewRememberAction);
         #region Properties
@@ -34,7 +37,12 @@ namespace Remember.ViewModels
 
         private void NewRememberAction()
         {
+            var remember = this._rememberService.GetByExactName(this.Parameter, this.NewRemember);
 
+            if (remember == null)
+                _newRememberPageView.Navigate(this.Parameter);
+            //else
+            //    //TODO: Si existe el remember debe de editarse el existente
         }
 
         private RememberModel _rememberModel;
@@ -70,6 +78,9 @@ namespace Remember.ViewModels
         }
         public void SetParameter(CategoryModel parameter)
         {
+            if (parameter == null)
+                throw new ArgumentNullException(nameof(parameter));
+
             this.Parameter = parameter;
             this.NewRemember = string.Empty;
             SetRemembers(parameter.Remembers);
@@ -98,10 +109,11 @@ namespace Remember.ViewModels
             }
         }
 
-        public RememberListViewModel(ILoginService loginService, IRememberService rememberService)
+        public RememberListViewModel(ILoginService loginService, IRememberService rememberService, INewRememberPageView newRememberPageView)
         {
             _loginService = loginService;
             _rememberService = rememberService;
+            _newRememberPageView = newRememberPageView;
         }
 
         private void SearchRemember()

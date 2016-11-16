@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Remember.Pages
+namespace Remember.Pages.Partials
 {
-    public partial class RememberList : ContentPage
+    public partial class UserHeader : ContentView
     {
-        public RememberList()
+        public UserHeader()
         {
             InitializeComponent();
-        }
-
-        private void Entry_OnCompleted(object sender, EventArgs e)
-        {
-
         }
     }
 }

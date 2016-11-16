@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Remember.Pages.Remember.NewRememberPage"
+             Title="New Remember"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding NewRememberViewModel,Source={StaticResource Locator}}">
+  <StackLayout>
+    <abstractions:CircleImage
+            Margin="10"
+            Source="{Binding ImageSource}"
+      
+      BorderThickness="1"
+      BorderColor="{StaticResource FontColor}"
+      HeightRequest="110"
+
+      WidthRequest="110">
+      <abstractions:CircleImage.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding TakePictureCommand}"></TapGestureRecognizer>
+      </abstractions:CircleImage.GestureRecognizers>
+    </abstractions:CircleImage>
+    <TableView>
+      <TableSection>
+        <EntryCell Placeholder="Nombre" Label="Nombre" Text="{Binding Remember.Name}"></EntryCell>
+        <EntryCell Placeholder="Notas" Label="Noras" Text="{Binding Remember.Note}"></EntryCell>
+        <SwitchCell On="{Binding Remember.Active}" Text="Recordar"></SwitchCell>
+      </TableSection>
+    </TableView>
+  </StackLayout>
+
+</ContentPage>

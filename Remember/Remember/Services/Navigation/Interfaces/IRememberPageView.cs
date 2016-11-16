@@ -1,6 +1,6 @@
 ﻿using Remember.Models;
 
-namespace Remember.Services.Navigation
+namespace Remember.Services.Navigation.Interfaces
 {
     public interface IRememberPageView
     {

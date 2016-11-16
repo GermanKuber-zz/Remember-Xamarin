@@ -69,6 +69,10 @@ namespace Remember.Services
         {
             return _rememberRepository.GetAll(category);
         }
+        public RememberModel GetByExactName(CategoryModel category, string rememberName, bool local = false)
+        {
+            return _rememberRepository.GetByExactName(category, rememberName);
+        }
         public List<RememberModel> GetAll(CategoryModel category, string filterName, bool local = false)
         {
             if (local)
