@@ -1,12 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Practices.Unity;
+﻿using System.Threading.Tasks;
 using Remember.Pages;
 using Remember.Services.Interfaces;
+using Remember.Services.Navigation.Interfaces;
 using Remember.ViewModels;
 using Xamarin.Forms;
 
-namespace Remember.Services
+namespace Remember.Services.Navigation
 {
     public class NavigationService : INavigationService
     {
@@ -20,32 +19,7 @@ namespace Remember.Services
             _loginService = loginService;
         }
 
-        public async Task Navigate(string pageName)
-        {
-            this._masterPage.IsPresented = false;
-            switch (pageName)
-            {
 
-                case "Configuration":
-                    await this._navigationPage.PushAsync(new Configuration());
-                    break;
-                case "Map":
-                    await this._navigationPage.PushAsync(new Map());
-                    break;
-                case "Remember":
-                    await this._navigationPage.PushAsync(new RememberPage());
-                    break;
-                case "RememberList":
-                    await this._navigationPage.PushAsync(new RememberList());
-                    break;
-                case "Logout":
-                    Logout();
-                    break;
-                default:
-                    break;
-
-            }
-        }
 
         public async Task Navigate(MenuItemViewModel viewModel)
         {
@@ -56,6 +30,12 @@ namespace Remember.Services
             {
                 await this._navigationPage.PushAsync(viewModel.Page);
             }
+        }
+        public async Task Back()
+        {
+
+            await this._navigationPage.PopAsync();
+
         }
 
         public void Navigate<T>() where T : Xamarin.Forms.Page, new()
@@ -75,16 +55,23 @@ namespace Remember.Services
 
         public void SetMainPage<T>() where T : Xamarin.Forms.Page, new()
         {
-            App.Current.MainPage = new T();
+            if (!setMainPage)
+            {
+                _navigationPage = new NavigationPage(new T());
+
+                App.Current.MainPage = _navigationPage;
+                setMainPage = true;
+            }
+            else
+            {
+                this.Navigate<T>();
+            }
+
 
         }
-        public void SetMasterPage()
-        {
-            var newItem = App.Container.Resolve<MasterPage>();
 
-            App.Current.MainPage = newItem;
 
-        }
+        private bool setMainPage = false;
 
         public void SetRequirement(MasterPage masterPage, NavigationPage navigationPage)
         {

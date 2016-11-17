@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
 using Remember.Models;
 using Remember.Pages;
-using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
 using Remember.ViewModels;
 
-namespace Remember.Services.Navigation
+namespace Remember.Services.Navigation.Views
 {
     public class RememberPageView : IRememberPageView
     {

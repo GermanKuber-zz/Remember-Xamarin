@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviorCustoms="clr-namespace:Remember.BehaviorCustoms;assembly=Remember"
+             x:Class="Remember.Pages.User.RegisterPage"
+             Title="Register"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding RegisterViewModel,Source={StaticResource Locator}}">
+
+  <StackLayout
+    Padding="10" Spacing="20">
+    <Label
+         Text="Remember This"
+         TextColor="{StaticResource MainColor}"
+         FontSize="24"
+         FontAttributes="Bold"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"></Label>
+    <Image Source="ic_launcher.png"
+           WidthRequest="80"
+           HeightRequest="80"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"></Image>
+    <BoxView
+      HeightRequest="3"
+      Color="{StaticResource MainColor}"></BoxView>
+    <Entry
+  Placeholder="Nombre"
+  IsPassword="true"
+    Text="{Binding Name, Mode=TwoWay}"
+  TextColor="{StaticResource FontColor}"></Entry>
+    <Entry
+          IsEnabled="True"
+          Placeholder="Email"
+          Keyboard="Email"
+          Text="{Binding Email, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}">
+      <!--<Entry.Behaviors>
+        <behaviorCustoms:EmailValidatorBehavior x:Name="emailValidator"/>
+      </Entry.Behaviors>-->
+    </Entry>
+
+    <Entry
+          Placeholder="Password"
+          IsPassword="true"
+            Text="{Binding Password, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}"></Entry>
+
+    <Entry
+          Placeholder="Re Password"
+          IsPassword="true"
+            Text="{Binding RePassword, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}"></Entry>
+
+
+
+
+    <Button Text="Registrar"
+            Command="{Binding RegisterCommand}"
+            BackgroundColor="{StaticResource MainColor}"
+            HorizontalOptions="End"
+            VerticalOptions="Center"></Button>
+    <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
+
+    </ActivityIndicator>
+
+  </StackLayout>
+</ContentPage>

@@ -14,7 +14,7 @@ namespace Remember.ViewModels
         public UserHeaderViewModel UserHeaderViewModel => App.Container.Resolve<UserHeaderViewModel>();
         public NewRememberViewModel NewRememberViewModel => App.Container.Resolve<NewRememberViewModel>();
         public CompleteRememberViewModel CompleteRememberViewModel => App.Container.Resolve<CompleteRememberViewModel>();
-
+        public RegisterViewModel RegisterViewModel => App.Container.Resolve<RegisterViewModel>();
 
 
 

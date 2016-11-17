@@ -17,6 +17,12 @@ namespace Remember.Data
         {
             var config = DependencyService.Get<ISQLite>();
             _connection = config.GetConnection();
+
+
+            //_connection.DeleteAll<User>();
+            //_connection.DeleteAll<CategoryModel>();
+            //_connection.DeleteAll<RememberModel>();
+
             _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
             _connection.CreateTable<CategoryModel>();

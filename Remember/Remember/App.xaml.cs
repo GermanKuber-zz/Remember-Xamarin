@@ -1,11 +1,13 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Remember.Pages;
+using Remember.Pages.MastersPages;
 using Remember.Repositories;
 using Remember.Services;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation;
 using Remember.Services.Navigation.Interfaces;
+using Remember.Services.Navigation.Views;
 using Remember.ViewModels;
 using Remember.ViewModels.Partials;
 using Remember.ViewModels.Remembers;
@@ -22,17 +24,9 @@ namespace Remember
         {
             InitializeComponent();
             Register();
-            var loginService = App.Container.Resolve<ILoginService>();
             var navigate = App.Container.Resolve<INavigationService>();
 
-
-
-            if (loginService.LogedUser != null && loginService.LogedUser.IsRemember)
-            {
-                navigate.SetMasterPage();
-            }
-            else
-                navigate.SetMainPage<LoginPage>();
+            navigate.SetMainPage<LoginPage>();
 
 
 
@@ -57,6 +51,9 @@ namespace Remember
             Container.RegisterType<IRememberPageView, RememberPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<INewRememberPageView, NewRememberPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<ICompleteRememberPageView, CompleteRememberPageView>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ILogOutPageView, LogOutPageView>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IRegisterPageView, RegisterPageView>(new ContainerControlledLifetimeManager());
+
 
 
         }
@@ -81,6 +78,9 @@ namespace Remember
             Container.RegisterType<IRememberService, RememberService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<INetService, NetService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IScanService, ScanService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IProxyService, ProxyService>(new ContainerControlledLifetimeManager());
+
+
 
         }
 
@@ -95,6 +95,7 @@ namespace Remember
             Container.RegisterType<NewRememberViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<UserHeaderViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<CompleteRememberViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());
 
 
         }

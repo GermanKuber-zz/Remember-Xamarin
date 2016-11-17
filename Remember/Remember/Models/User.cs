@@ -4,9 +4,9 @@ namespace Remember.Models
 {
     public class User
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
 
-        public int UserId { get; set; }
+        public int Id { get; set; }
         public string Email { get; set; }
         public string Image { get; set; }
         public string FirstName { get; set; }
@@ -20,7 +20,7 @@ namespace Remember.Models
 
         public override int GetHashCode()
         {
-            return UserId;
+            return Id;
         }
     }
 }

@@ -38,8 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Behavior\BehaviorBase.cs" />
-    <Compile Include="Behavior\EventToCommandBehavior.cs" />
+    <Compile Include="BehaviorCustoms\BehaviorBase.cs" />
+    <Compile Include="BehaviorCustoms\EmailValidatorBehavior.cs" />
+    <Compile Include="BehaviorCustoms\EventToCommandBehavior.cs" />
     <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Common\Utilities.cs" />
     <Compile Include="Data\DataAccess.cs" />
@@ -57,11 +58,20 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Login\LoginNavigationPage.xaml.cs">
+      <DependentUpon>LoginNavigationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MastersPages\LoginMasterPage.xaml.cs">
+      <DependentUpon>LoginMasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenuPage2.xaml.cs">
+      <DependentUpon>MenuPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -87,6 +97,9 @@
     <Compile Include="Pages\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRememberRepository.cs" />
     <Compile Include="Repositories\IRememberZoneRepository.cs" />
@@ -101,22 +114,29 @@
     <Compile Include="Services\Interfaces\IDialogService.cs" />
     <Compile Include="Services\Interfaces\ILoginService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
-    <Compile Include="Services\Interfaces\INavigationService.cs" />
+    <Compile Include="Services\Navigation\Interfaces\INavigationService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
+    <Compile Include="Services\Interfaces\IProxyService.cs" />
     <Compile Include="Services\IRememberService.cs" />
     <Compile Include="Services\Interfaces\IScanService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MenuFactory.cs" />
-    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\Navigation\NavigationService.cs" />
     <Compile Include="Services\CategoryService.cs" />
-    <Compile Include="Services\Navigation\CompleteRememberPageView.cs" />
+    <Compile Include="Services\Navigation\Views\CompleteRememberPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\ILogOutPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\ICompleteRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\INewRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
-    <Compile Include="Services\Navigation\NewRememberPageView.cs" />
-    <Compile Include="Services\Navigation\RememberPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\IRegisterPageView.cs" />
+    <Compile Include="Services\Navigation\Views\LogOutPageView.cs" />
+    <Compile Include="Services\Navigation\Views\NewRememberPageView.cs" />
+    <Compile Include="Services\Navigation\Views\RegisterPageView.cs" />
+    <Compile Include="Services\Navigation\Views\RememberPageView.cs" />
     <Compile Include="Services\NetService.cs" />
+    <Compile Include="Services\ProxyService.cs" />
     <Compile Include="Services\ScanService.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Remembers\CompleteRememberViewModel.cs" />
     <Compile Include="ViewModels\LocatorViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -335,6 +355,30 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Remember\CompleteRememberPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\User\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MastersPages\LoginMasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Login\LoginNavigationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MenuPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

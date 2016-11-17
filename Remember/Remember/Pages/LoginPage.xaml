@@ -34,11 +34,23 @@
           IsPassword="true"
             Text="{Binding Password, Mode=TwoWay}"
           TextColor="{StaticResource FontColor}"></Entry>
-    <Button Text="Login"
-            Command="{Binding LoginCommand}"
-            BackgroundColor="{StaticResource MainColor}"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"></Button>
+    <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
+      <Button Text="Login"
+                  Margin="10"
+              Command="{Binding LoginCommand}"
+              TextColor="{StaticResource MenuColor}"
+              BackgroundColor="{StaticResource MainColor}"
+              HorizontalOptions="Center"
+              VerticalOptions="Center"></Button>
+
+      <Button Text="Register"
+          Command="{Binding RegisterCommand}"
+              Margin="10"
+                    TextColor="{StaticResource MenuColor}"
+          BackgroundColor="{StaticResource MainColor}"
+          HorizontalOptions="Center"
+          VerticalOptions="Center"></Button>
+    </StackLayout>
     <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
 
     </ActivityIndicator>

@@ -1,11 +1,10 @@
 ﻿using Microsoft.Practices.Unity;
 using Remember.Models;
 using Remember.Pages.Remember;
-using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
 using Remember.ViewModels.Remembers;
 
-namespace Remember.Services.Navigation
+namespace Remember.Services.Navigation.Views
 {
     public class NewRememberPageView : INewRememberPageView
     {

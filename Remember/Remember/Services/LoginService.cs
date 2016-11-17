@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Remember.Interfaces;
 using Remember.Models;
 using Remember.Services.Interfaces;
-using Xamarin.Forms;
 
 namespace Remember.Services
 {
     public class LoginService : ILoginService
     {
         private readonly IDataService _dataService;
+        private readonly IProxyService _proxyService;
         private readonly INetService _netService;
 
-        public LoginService(IDataService dataService, INetService netService)
+        public LoginService(IDataService dataService, IProxyService proxyService, INetService netService)
         {
             _dataService = dataService;
+            _proxyService = proxyService;
             _netService = netService;
         }
 
@@ -22,20 +21,20 @@ namespace Remember.Services
         {
             if (_netService.IsConnected())
             {
-                var user = new User
-                {
-                    Email = email,
-                    FirstName = "Germán",
-                    LastName = "Küber",
-                    Image = "http://germankuber.com.ar/wp-content/uploads/2016/10/4.jpg"
+                //Si hay conexion
+                var response = _proxyService.Login(email, password);
 
-                };
-                if (remember)
+                if (response.IsSuccess)
                 {
-                    this.Recordar(user);
+
+                    response.Result.IsRemember = remember;
+                    return _dataService.Insert(response.Result);
+
                 }
-                user.IsRemember = remember;
-                return _dataService.Insert(user);
+                else
+                {
+                    return response;
+                }
             }
             else
             {
