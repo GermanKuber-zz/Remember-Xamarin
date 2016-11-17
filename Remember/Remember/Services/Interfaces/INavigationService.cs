@@ -9,6 +9,7 @@ namespace Remember.Services.Interfaces
     {
         Task Navigate(string pageName);
         Task Navigate(MenuItemViewModel viewModel);
+        Task Back();
 
         void SetMainPage<T>() where T : Xamarin.Forms.Page, new();
 
