@@ -25,7 +25,25 @@ namespace Remember.Services
                     }
                 };
             }
-            if (email.ToUpper() == "A@A.com" && password.ToUpper() == "A@A.com")
+            else if (email.ToUpper() == "A" && password.ToUpper() == "A")
+            {
+
+                return new Response<User>
+                {
+                    IsSuccess = true,
+                    Result = new User
+                    {
+                        Email = email,
+                        Password = password,
+                        FirstName = "Germán",
+                        LastName = "Küber",
+                        Id = 1,
+                        Image = "http://germankuber.com.ar/wp-content/uploads/2016/10/4.jpg"
+
+                    }
+                };
+            }
+            if (email.ToUpper() == "A@A.COM" && password.ToUpper() == "A@A.COM")
             {
 
                 return new Response<User>
@@ -51,6 +69,16 @@ namespace Remember.Services
                     IsSuccess = false
                 };
             }
+        }
+
+        public Response<User> Register(User registerUser)
+        {
+            registerUser.Id = 5;
+            return new Response<User>
+            {
+                IsSuccess = true,
+                Result = registerUser
+            };
         }
     }
 }

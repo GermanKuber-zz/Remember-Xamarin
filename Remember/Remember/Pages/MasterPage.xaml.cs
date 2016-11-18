@@ -1,5 +1,4 @@
-﻿using Remember.Services.Interfaces;
-using Remember.Services.Navigation.Interfaces;
+﻿using Remember.Services.Navigation.Interfaces;
 using Xamarin.Forms;
 
 namespace Remember.Pages

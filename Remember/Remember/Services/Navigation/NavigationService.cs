@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.Practices.Unity;
 using Remember.Pages;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
@@ -55,16 +57,17 @@ namespace Remember.Services.Navigation
 
         public void SetMainPage<T>() where T : Xamarin.Forms.Page, new()
         {
-            if (!setMainPage)
+            Type listType = typeof(T);
+            if (listType != typeof(MasterPage))
             {
                 _navigationPage = new NavigationPage(new T());
 
                 App.Current.MainPage = _navigationPage;
-                setMainPage = true;
+
             }
             else
             {
-                this.Navigate<T>();
+                App.Current.MainPage = App.Container.Resolve<T>();
             }
 
 

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Input;
 using Plugin.Media;
-using Remember.Common;
 using Remember.Models;
 using Xamarin.Forms;
 using XLabs;

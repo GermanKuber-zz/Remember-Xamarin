@@ -4,7 +4,6 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Remember.Models;
 using Remember.Services.Interfaces;
-using Remember.Services.Navigation;
 using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels

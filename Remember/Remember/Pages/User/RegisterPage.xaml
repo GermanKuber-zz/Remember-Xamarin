@@ -25,41 +25,65 @@
       HeightRequest="3"
       Color="{StaticResource MainColor}"></BoxView>
     <Entry
-  Placeholder="Nombre"
-  IsPassword="true"
-    Text="{Binding Name, Mode=TwoWay}"
-  TextColor="{StaticResource FontColor}"></Entry>
+          Placeholder="Nombre"
+           Text="{Binding Name, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}">
+      <Entry.Behaviors>
+        <behaviorCustoms:EntryNotNullBehavior IsValid="{Binding IsNameValid,Mode=TwoWay}"></behaviorCustoms:EntryNotNullBehavior>
+      </Entry.Behaviors>
+    </Entry>
+
     <Entry
           IsEnabled="True"
           Placeholder="Email"
           Keyboard="Email"
           Text="{Binding Email, Mode=TwoWay}"
           TextColor="{StaticResource FontColor}">
-      <!--<Entry.Behaviors>
-        <behaviorCustoms:EmailValidatorBehavior x:Name="emailValidator"/>
-      </Entry.Behaviors>-->
+      <Entry.Behaviors>
+        <behaviorCustoms:EmailValidatorBehavior IsValid="{Binding IsEmailValid,Mode=TwoWay}" x:Name="emailValidator"/>
+      </Entry.Behaviors>
     </Entry>
+
+    <!--<Image
+           x:Name="emailSuccessErrorImage"
+           Source="v.png"
+           WidthRequest="40"
+           HeightRequest="40"
+           IsVisible="{Binding Source={x:Reference emailValidator},Path=IsValid}"></Image>
+      <Image
+       x:Name="emailSuccessErrorImages"
+       Source="x.png"
+             WidthRequest="40"
+           HeightRequest="40"
+       IsVisible="{Binding Source={x:Reference emailValidator},Path=IsValid, Converter={StaticResource  NegateBoolConverter}}"></Image>-->
+
 
     <Entry
           Placeholder="Password"
           IsPassword="true"
-            Text="{Binding Password, Mode=TwoWay}"
-          TextColor="{StaticResource FontColor}"></Entry>
+          x:Name="Password"
+          Text="{Binding Password, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}">
+    </Entry>
 
     <Entry
           Placeholder="Re Password"
           IsPassword="true"
-            Text="{Binding RePassword, Mode=TwoWay}"
-          TextColor="{StaticResource FontColor}"></Entry>
-
-
-
+          Text="{Binding RePassword, Mode=TwoWay}"
+          IsEnabled="{Binding Password, Converter={StaticResource EnableWithOutStringEmptyConverter}}"
+          TextColor="{StaticResource FontColor}">
+      <Entry.Behaviors>
+        <behaviorCustoms:ConfirmPasswordBehavior IsValid="{Binding IsPasswordValid}" CompareToEntry="{Binding Source={x:Reference Password}}"></behaviorCustoms:ConfirmPasswordBehavior>
+      </Entry.Behaviors>
+    </Entry>
 
     <Button Text="Registrar"
             Command="{Binding RegisterCommand}"
             BackgroundColor="{StaticResource MainColor}"
+            IsEnabled="{Binding IsNameValid, Mode=TwoWay}"
             HorizontalOptions="End"
-            VerticalOptions="Center"></Button>
+            VerticalOptions="Center">
+    </Button>
     <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
 
     </ActivityIndicator>

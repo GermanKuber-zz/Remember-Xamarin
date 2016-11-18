@@ -1,7 +1,6 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Remember.Pages;
-using Remember.Pages.MastersPages;
 using Remember.Repositories;
 using Remember.Services;
 using Remember.Services.Interfaces;

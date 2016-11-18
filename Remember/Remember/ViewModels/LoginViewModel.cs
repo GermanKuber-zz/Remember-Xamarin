@@ -62,6 +62,7 @@ namespace Remember.ViewModels
 
         private async void Login()
         {
+            this.IsRunning = true;
             if (string.IsNullOrEmpty(Email))
             {
                 await _dialogService.ShowMessage("Error", "Debe ingresar un Usuario");
@@ -80,7 +81,7 @@ namespace Remember.ViewModels
                 await _dialogService.ShowMessage("Error", "Debe ingresar un Password");
                 return;
             }
-            this.IsRunning = true;
+
             var user = _loginService.Login(Email, Password, IsRemembered);
             if (user.IsSuccess)
                 _navigationService.SetMainPage<MasterPage>();

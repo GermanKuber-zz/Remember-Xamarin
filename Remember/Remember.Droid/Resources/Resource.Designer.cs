@@ -2490,14 +2490,20 @@ namespace Remember.Droid
 			// aapt resource value: 0x7f0200cf
 			public const int mr_ic_play_light = 2130837711;
 			
-			// aapt resource value: 0x7f0200d2
-			public const int notification_template_icon_bg = 2130837714;
+			// aapt resource value: 0x7f0200d4
+			public const int notification_template_icon_bg = 2130837716;
 			
 			// aapt resource value: 0x7f0200d0
 			public const int remember = 2130837712;
 			
 			// aapt resource value: 0x7f0200d1
 			public const int scanner = 2130837713;
+			
+			// aapt resource value: 0x7f0200d2
+			public const int v = 2130837714;
+			
+			// aapt resource value: 0x7f0200d3
+			public const int x = 2130837715;
 			
 			static Drawable()
 			{

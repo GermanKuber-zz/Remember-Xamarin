@@ -2,6 +2,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Remember.ViewModels;assembly=Remember"
+             xmlns:converters="clr-namespace:Remember.Converters;assembly=Remember"
 
              x:Class="Remember.App">
   <Application.Resources>
@@ -55,6 +56,14 @@
           </Grid>
         </ViewCell>
       </DataTemplate>
+
+
+
+      <!--Converters-->
+
+      <converters:NegateBoolConverter x:Key="NegateBoolConverter"></converters:NegateBoolConverter>
+      <converters:EnableWithOutStringEmptyConverter x:Key="EnableWithOutStringEmptyConverter"></converters:EnableWithOutStringEmptyConverter>
+
     </ResourceDictionary>
   </Application.Resources>
 </Application>

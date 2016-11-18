@@ -9,5 +9,6 @@ namespace Remember.Services.Interfaces
 
         Response<User> Login(string email, string password, bool remember = false);
         Response<bool> LogOut();
+        Response<User> Register(User registerUser);
     }
 }

@@ -10,7 +10,9 @@ namespace Remember.Services
         private readonly IProxyService _proxyService;
         private readonly INetService _netService;
 
-        public LoginService(IDataService dataService, IProxyService proxyService, INetService netService)
+        public LoginService(IDataService dataService,
+            IProxyService proxyService,
+            INetService netService)
         {
             _dataService = dataService;
             _proxyService = proxyService;
@@ -65,7 +67,6 @@ namespace Remember.Services
                         Message = "No hay conexion a internet y un usuario nunca se logueo"
                     };
                 }
-
             }
         }
 
@@ -107,12 +108,30 @@ namespace Remember.Services
 
         }
 
-        private void Recordar(User user)
+        public Response<User> Register(User registerUser)
         {
-            //var database = DependencyService.Get<ISQLite>();
+            if (_netService.IsConnected())
+            {
+                //Si hay conexion
+                var response = _proxyService.Register(registerUser);
+
+                if (response.IsSuccess)
+                {
+                    //Inserto el usuario local
+                    return _dataService.Insert(response.Result);
+                }
+                else
+                    return response;
+
+            }
+            else
+                return new Response<User>
+                {
+                    IsSuccess = false,
+                    Message = "No hay conexion a internet intente mas tarde"
+                };
 
 
-            //database.GetConnection().CreateTable<User>();
         }
     }
 }

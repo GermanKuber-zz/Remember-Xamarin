@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using Remember.Common;
+using Remember.Models;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
 
@@ -73,14 +73,6 @@ namespace Remember.ViewModels
             }
         }
 
-
-
-
-
-
-
-
-
         private bool _IsRunning = false;
         public bool IsRunning
         {
@@ -96,6 +88,39 @@ namespace Remember.ViewModels
             }
         }
 
+        private bool _isPasswordValid;
+        public bool IsPasswordValid
+        {
+            get { return _isPasswordValid; }
+            set
+            {
+                this._isPasswordValid = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        private bool _isEmailValid;
+        public bool IsEmailValid
+        {
+            get { return _isEmailValid; }
+            set
+            {
+                this._isEmailValid = value;
+                this.OnPropertyChanged();
+            }
+        }
+        private bool _isNameValid;
+        public bool IsNameValid
+        {
+            get { return _isNameValid; }
+            set
+            {
+                this._isNameValid = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region Commands
@@ -103,6 +128,22 @@ namespace Remember.ViewModels
 
         private void Register()
         {
+            var newUser = new User
+            {
+                Email = Email,
+                Password = Password,
+                FirstName = Name
+            };
+            var response = _loginService.Register(newUser);
+            if (response.IsSuccess)
+            {
+                _dialogService.ShowMessage("Bienvenido", "Usuario Creado, ahora puede loguearse!");
+                this._navigationService.Back();
+            }
+            else
+            {
+                _dialogService.ShowMessage("Error", response.Message);
+            }
 
         }
 

@@ -38,11 +38,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BehaviorCustoms\BaseBehavior.cs" />
     <Compile Include="BehaviorCustoms\BehaviorBase.cs" />
+    <Compile Include="BehaviorCustoms\CompleteFormValidateBehavior.cs" />
     <Compile Include="BehaviorCustoms\EmailValidatorBehavior.cs" />
+    <Compile Include="BehaviorCustoms\EntryNotNullBehavior.cs" />
     <Compile Include="BehaviorCustoms\EventToCommandBehavior.cs" />
     <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Common\Utilities.cs" />
+    <Compile Include="BehaviorCustoms\ConfirmPasswordBehavior.cs" />
+    <Compile Include="Converters\EnableWithOutStringEmptyConverter.cs" />
+    <Compile Include="Converters\NegateBoolConverter.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Infraestructure\InstanceLocator.cs" />
     <Compile Include="Interfaces\Cross\INetworkConnection.cs" />
@@ -58,20 +64,11 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Login\LoginNavigationPage.xaml.cs">
-      <DependentUpon>LoginNavigationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MastersPages\LoginMasterPage.xaml.cs">
-      <DependentUpon>LoginMasterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MenuPage2.xaml.cs">
-      <DependentUpon>MenuPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -232,6 +229,9 @@
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Behaviors, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.Behaviors.1.3.1\lib\Xamarin.Behaviors.dll</HintPath>
       <Private>True</Private>
@@ -361,24 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\User\RegisterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\MastersPages\LoginMasterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\Login\LoginNavigationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\MenuPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
