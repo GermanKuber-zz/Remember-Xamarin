@@ -40,6 +40,7 @@ namespace Remember.Services
                 using (var da = new DataAccess())
                 {
                     var oldData = da.First<T>(false);
+                    var asd = da.GetList<T>(false);
                     if (oldData != null)
                     {
                         da.Delete(oldData);

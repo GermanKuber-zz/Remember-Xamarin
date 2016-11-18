@@ -19,9 +19,9 @@ namespace Remember.Data
             _connection = config.GetConnection();
 
 
-            _connection.DeleteAll<User>();
-            _connection.DeleteAll<CategoryModel>();
-            _connection.DeleteAll<RememberModel>();
+            //_connection.DeleteAll<User>();
+            //_connection.DeleteAll<CategoryModel>();
+            //_connection.DeleteAll<RememberModel>();
 
             _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
