@@ -44,6 +44,7 @@
     <Compile Include="BehaviorCustoms\EmailValidatorBehavior.cs" />
     <Compile Include="BehaviorCustoms\EntryNotNullBehavior.cs" />
     <Compile Include="BehaviorCustoms\EventToCommandBehavior.cs" />
+    <Compile Include="BehaviorCustoms\ValidationErrorColors.cs" />
     <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Common\Utilities.cs" />
     <Compile Include="BehaviorCustoms\ConfirmPasswordBehavior.cs" />
@@ -126,13 +127,16 @@
     <Compile Include="Services\Navigation\Interfaces\INewRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRegisterPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\IMasterPageView.cs" />
     <Compile Include="Services\Navigation\Views\LogOutPageView.cs" />
     <Compile Include="Services\Navigation\Views\NewRememberPageView.cs" />
+    <Compile Include="Services\Navigation\Views\PageViewNavigationBase.cs" />
     <Compile Include="Services\Navigation\Views\RegisterPageView.cs" />
     <Compile Include="Services\Navigation\Views\RememberPageView.cs" />
     <Compile Include="Services\NetService.cs" />
     <Compile Include="Services\ProxyService.cs" />
     <Compile Include="Services\ScanService.cs" />
+    <Compile Include="ViewModels\IViewModelBase.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Remembers\CompleteRememberViewModel.cs" />
     <Compile Include="ViewModels\LocatorViewModel.cs" />
@@ -146,6 +150,7 @@
     <Compile Include="ViewModels\RememberListViewModel.cs" />
     <Compile Include="ViewModels\Remembers\NewRememberViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

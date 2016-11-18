@@ -9,9 +9,10 @@ namespace Remember.ViewModels
 {
     public class LoginViewModel : NotificationChangedBase
     {
-        private readonly INavigationService _navigationService;
+
         private readonly IDialogService _dialogService;
         private readonly IRegisterPageView _registerPageView;
+        private readonly IMasterPageView _masterPageView;
         private readonly ILoginService _loginService;
 
         #region Properties
@@ -84,7 +85,7 @@ namespace Remember.ViewModels
 
             var user = _loginService.Login(Email, Password, IsRemembered);
             if (user.IsSuccess)
-                _navigationService.SetMainPage<MasterPage>();
+                _masterPageView.Navigate();
             else
 
                 await _dialogService.ShowMessage("Error", "Intente nuevamente");
@@ -96,21 +97,22 @@ namespace Remember.ViewModels
 
         #region Constructors
 
-        public LoginViewModel(INavigationService navigationService,
-            ILoginService loginService,
+        public LoginViewModel(ILoginService loginService,
             IDialogService dialogService,
-            IRegisterPageView registerPageView)
+            IRegisterPageView registerPageView,
+            IMasterPageView masterPageView)
         {
-            _navigationService = navigationService;
+
             _loginService = loginService;
             _dialogService = dialogService;
             _registerPageView = registerPageView;
+            _masterPageView = masterPageView;
 
 
             if (loginService.LogedUser != null)
             {
                 if (loginService.LogedUser.IsRemember)
-                    _navigationService.SetMainPage<MasterPage>();
+                    _masterPageView.Navigate();
                 else
                 {
                     this.Password = loginService.LogedUser.Password;

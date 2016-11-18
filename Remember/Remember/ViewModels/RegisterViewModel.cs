@@ -6,7 +6,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class RegisterViewModel : NotificationChangedBase
+    public class RegisterViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly IDialogService _dialogService;
@@ -96,6 +96,7 @@ namespace Remember.ViewModels
             {
                 this._isPasswordValid = value;
                 this.OnPropertyChanged();
+                Validate();
             }
         }
 
@@ -107,6 +108,7 @@ namespace Remember.ViewModels
             {
                 this._isEmailValid = value;
                 this.OnPropertyChanged();
+                Validate();
             }
         }
         private bool _isNameValid;
@@ -117,6 +119,7 @@ namespace Remember.ViewModels
             {
                 this._isNameValid = value;
                 this.OnPropertyChanged();
+                Validate();
             }
         }
 
@@ -199,6 +202,27 @@ namespace Remember.ViewModels
 
         #region Private Methods
 
+        private void Validate()
+        {
+            if (this.IsEmailValid && this.IsNameValid && this.IsPasswordValid)
+                this.IsValid = true;
+            else
+                this.IsValid = false;
+        }
+
         #endregion
+
+        public override void LoadViewModel()
+        {
+            this.Email = string.Empty;
+            this.Name = string.Empty;
+            this.Password = string.Empty;
+            this.RePassword = string.Empty;
+        }
+
+        public override void UnLoadViewModel()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -4,6 +4,20 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
+    public class MasterPageViewModel : ViewModelBase
+
+    {
+        public override void LoadViewModel()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void UnLoadViewModel()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
     public class MenuItemViewModel
     {
 

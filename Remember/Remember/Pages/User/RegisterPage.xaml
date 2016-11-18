@@ -80,7 +80,7 @@
     <Button Text="Registrar"
             Command="{Binding RegisterCommand}"
             BackgroundColor="{StaticResource MainColor}"
-            IsEnabled="{Binding IsNameValid, Mode=TwoWay}"
+            IsEnabled="{Binding IsValid, Mode=TwoWay}"
             HorizontalOptions="End"
             VerticalOptions="Center">
     </Button>

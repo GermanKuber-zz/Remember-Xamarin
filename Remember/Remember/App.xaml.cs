@@ -52,6 +52,7 @@ namespace Remember
             Container.RegisterType<ICompleteRememberPageView, CompleteRememberPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<ILogOutPageView, LogOutPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IRegisterPageView, RegisterPageView>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IMasterPageView, MasterPageView>(new ContainerControlledLifetimeManager());
 
 
 

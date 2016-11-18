@@ -11,9 +11,9 @@ namespace Remember.Services.Navigation.Interfaces
         Task Navigate(MenuItemViewModel viewModel);
         Task Back();
 
-        void SetMainPage<T>() where T : Xamarin.Forms.Page, new();
+        void SetMainPage<T>() where T : Page, new();
 
-        void Navigate<T>() where T : Xamarin.Forms.Page, new();
+        void Navigate<T>() where T : Page, new();
         void SetRequirement(MasterPage masterPage, NavigationPage navigationPage);
     }
 }

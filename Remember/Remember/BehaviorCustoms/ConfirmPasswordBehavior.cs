@@ -51,7 +51,7 @@ namespace Remember.BehaviorCustoms
             IsValid = password.Equals(confirmPassword);
 
 
-            ((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
+            ((Entry)sender).BackgroundColor = ValidationErrorColors.Validate(IsValid);
         }
 
         private void OnBindingContextChanged(object sender, EventArgs eventArgs)

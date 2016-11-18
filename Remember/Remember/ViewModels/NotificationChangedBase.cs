@@ -11,5 +11,16 @@ namespace Remember.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private bool _isValid;
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set
+            {
+                this._isValid = value;
+                this.OnPropertyChanged();
+            }
+        }
     }
 }

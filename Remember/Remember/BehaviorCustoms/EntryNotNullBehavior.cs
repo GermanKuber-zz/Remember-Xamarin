@@ -11,7 +11,7 @@ namespace Remember.BehaviorCustoms
         {
             var entry = (Entry)sender;
             IsValid = !string.IsNullOrEmpty(args.NewTextValue);
-            entry.BackgroundColor = IsValid ? Color.Green : Color.Red;
+            entry.BackgroundColor = ValidationErrorColors.Validate(IsValid);
         }
 
         protected override void OnAttachedTo(Entry bindable)

@@ -11,7 +11,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class RememberListViewModel : NotificationChangedBase, INavigatedViewModel<CategoryModel>
+    public class RememberListViewModel : ViewModelBase, INavigatedViewModel<CategoryModel>
     {
         private readonly ILoginService _loginService;
         private readonly IRememberService _rememberService;
@@ -142,6 +142,15 @@ namespace Remember.ViewModels
             SetRemembers(list);
         }
 
+        public override void LoadViewModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UnLoadViewModel()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface INavigatedViewModel<T>

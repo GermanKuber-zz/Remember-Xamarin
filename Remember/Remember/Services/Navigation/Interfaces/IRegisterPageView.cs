@@ -1,6 +1,11 @@
 ﻿namespace Remember.Services.Navigation.Interfaces
 {
-    public interface IRegisterPageView
+    public interface IRegisterPageView : IPageViewNavigationBase
+    {
+
+    }
+
+    public interface IPageViewNavigationBase
     {
         void Navigate();
     }
