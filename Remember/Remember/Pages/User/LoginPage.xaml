@@ -45,27 +45,23 @@
     </Entry>
     <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
       <Button Text="Login"
-              Margin="10"
-              IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
-              Command="{Binding LoginCommand}"
-              TextColor="{StaticResource MenuColor}"
-              BackgroundColor="{StaticResource MainColor}"
-              HorizontalOptions="Center"
-              VerticalOptions="Center"></Button>
+               Command="{Binding LoginCommand}"
+               Margin="10"
+               IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
+               TextColor="{StaticResource MenuColor}"
+               BackgroundColor="{StaticResource MainColor}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"></Button>
 
       <Button Text="Register"
           Command="{Binding RegisterCommand}"
           Margin="10"
-          IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
           TextColor="{StaticResource MenuColor}"
           BackgroundColor="{StaticResource MainColor}"
           HorizontalOptions="Center"
           VerticalOptions="Center"></Button>
-      <Entry Text="{Binding IsValidModel,Mode=TwoWay}"></Entry>
     </StackLayout>
-    <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
 
-    </ActivityIndicator>
     <StackLayout Orientation="Horizontal">
       <Label Text="Recuerdame"
              TextColor="{StaticResource MainColor}"

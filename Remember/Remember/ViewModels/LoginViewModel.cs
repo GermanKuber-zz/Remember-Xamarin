@@ -148,7 +148,7 @@ namespace Remember.ViewModels
                     this.IsRemembered = false;
                 }
             }
-            this.IsValidModel = false;
+
         }
 
         #endregion
