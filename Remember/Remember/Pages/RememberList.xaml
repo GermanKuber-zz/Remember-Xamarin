@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             xmlns:global="clr-namespace:;assembly=Remember"
-             x:Class="Remember.Pages.RememberList"          Title="Remember This"
+
+             xmlns:behaviorCustoms="clr-namespace:Remember.BehaviorCustoms;assembly=Remember"
+             x:Class="Remember.Pages.RememberList"
+             Title="Remember This"
              BackgroundColor="{StaticResource BackgroundColor}"
              BindingContext="{Binding RememberListViewModel,Source={StaticResource Locator}}">
   <!--<ContentPage.Behaviors>
@@ -24,7 +26,7 @@
       Text="{Binding NewRemember,Mode=TwoWay}"
      FontSize="25">
       <Entry.Behaviors>
-        <global:EventToCommandBehavior EventName="Completed" Command="{Binding NewRememberCommand}" />
+        <behaviorCustoms:EventToCommandBehavior EventName="Completed" Command="{Binding NewRememberCommand}" />
       </Entry.Behaviors>
     </Entry>
 

@@ -26,7 +26,7 @@
       Color="{StaticResource MainColor}"></BoxView>
     <Entry
           Placeholder="Nombre"
-           Text="{Binding Name, Mode=TwoWay}"
+          Text="{Binding Name, Mode=TwoWay}"
           TextColor="{StaticResource FontColor}">
       <Entry.Behaviors>
         <behaviorCustoms:EntryNotNullBehavior IsValid="{Binding IsNameValid,Mode=TwoWay}"></behaviorCustoms:EntryNotNullBehavior>
@@ -73,14 +73,14 @@
           IsEnabled="{Binding Password, Converter={StaticResource EnableWithOutStringEmptyConverter}}"
           TextColor="{StaticResource FontColor}">
       <Entry.Behaviors>
-        <behaviorCustoms:ConfirmPasswordBehavior IsValid="{Binding IsPasswordValid}" CompareToEntry="{Binding Source={x:Reference Password}}"></behaviorCustoms:ConfirmPasswordBehavior>
+        <behaviorCustoms:ConfirmPasswordBehavior IsValid="{Binding IsPasswordValid,Mode=TwoWay}" CompareToEntry="{Binding Source={x:Reference Password}}"></behaviorCustoms:ConfirmPasswordBehavior>
       </Entry.Behaviors>
     </Entry>
 
     <Button Text="Registrar"
             Command="{Binding RegisterCommand}"
             BackgroundColor="{StaticResource MainColor}"
-            IsEnabled="{Binding IsValid, Mode=TwoWay}"
+            IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
             HorizontalOptions="End"
             VerticalOptions="Center">
     </Button>

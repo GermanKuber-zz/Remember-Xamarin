@@ -79,6 +79,7 @@ namespace Remember
             Container.RegisterType<INetService, NetService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IScanService, ScanService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IProxyService, ProxyService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IBackService, BackService>(new ContainerControlledLifetimeManager());
 
 
 

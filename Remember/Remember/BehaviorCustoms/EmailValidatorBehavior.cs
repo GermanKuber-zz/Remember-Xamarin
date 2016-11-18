@@ -22,8 +22,8 @@ namespace Remember.BehaviorCustoms
 
         protected override void OnAttachedTo(Entry bindable)
         {
-            bindable.TextChanged += HandleTextChanged;
             base.OnAttachedTo(bindable);
+            bindable.TextChanged += HandleTextChanged;
         }
 
         void HandleTextChanged(object sender, TextChangedEventArgs e)

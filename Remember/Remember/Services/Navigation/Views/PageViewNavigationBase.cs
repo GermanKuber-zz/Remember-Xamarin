@@ -23,4 +23,23 @@ namespace Remember.Services.Navigation.Views
         }
     }
 
+    public class PageViewNavigationBaseWithParameter<TPage, TViewModel, TParameter> : IPageViewNavigationBaseWithParameter<TParameter> where TPage : Page, new()
+    where TViewModel : IViewModelBase, INavigatedViewModel<TParameter>
+
+    {
+        protected readonly INavigationService NavigationService;
+
+        public PageViewNavigationBaseWithParameter(INavigationService navigationService)
+        {
+            NavigationService = navigationService;
+        }
+
+        public void Navigate(TParameter parameter)
+        {
+            NavigationService.Navigate<TPage>();
+            var context = App.Container.Resolve<TViewModel>();
+            context.SetParameter(parameter);
+            context.LoadViewModel();
+        }
+    }
 }

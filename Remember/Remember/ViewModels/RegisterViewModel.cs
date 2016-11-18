@@ -2,14 +2,16 @@
 using GalaSoft.MvvmLight.Command;
 using Remember.Models;
 using Remember.Services.Interfaces;
+using Remember.Services.Navigation;
 using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
     public class RegisterViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
+
         private readonly IDialogService _dialogService;
+        private readonly IBackService _backService;
         private readonly ILoginService _loginService;
 
         #region Properties
@@ -141,7 +143,7 @@ namespace Remember.ViewModels
             if (response.IsSuccess)
             {
                 _dialogService.ShowMessage("Bienvenido", "Usuario Creado, ahora puede loguearse!");
-                this._navigationService.Back();
+                this._backService.Back();
             }
             else
             {
@@ -151,46 +153,17 @@ namespace Remember.ViewModels
         }
 
 
-        private async void Login()
-        {
-            //if (string.IsNullOrEmpty(Email))
-            //{
-            //    await _dialogService.ShowMessage("Error", "Debe ingresar un Usuario");
-            //    return;
-            //}
-            //else
-            //{
-            //    if (!Utilities.IsValidEmail(Email))
-            //    {
-            //        await _dialogService.ShowMessage("Error", "Formato de Email Ingresado invalido");
-            //        return;
-            //    }
-            //}
-            //if (string.IsNullOrEmpty(Password))
-            //{
-            //    await _dialogService.ShowMessage("Error", "Debe ingresar un Password");
-            //    return;
-            //}
-            //this.IsRunning = true;
-            //var user = _loginService.Login(Email, Password, IsRemembered);
-            //if (user.IsSuccess)
-            //    _navigationService.SetMasterPage();
-            //else
-
-            //    await _dialogService.ShowMessage("Error", "Intente nuevamente");
-            //this.IsRunning = false;
-        }
 
         #endregion
 
 
         #region Constructors
 
-        public RegisterViewModel(INavigationService navigationService,
+        public RegisterViewModel(IBackService backService,
             ILoginService loginService,
             IDialogService dialogService)
         {
-            _navigationService = navigationService;
+            _backService = backService;
             _loginService = loginService;
             _dialogService = dialogService;
 
@@ -205,9 +178,9 @@ namespace Remember.ViewModels
         private void Validate()
         {
             if (this.IsEmailValid && this.IsNameValid && this.IsPasswordValid)
-                this.IsValid = true;
+                this.IsValidModel = true;
             else
-                this.IsValid = false;
+                this.IsValidModel = false;
         }
 
         #endregion

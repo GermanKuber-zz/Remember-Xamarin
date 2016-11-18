@@ -1,29 +1,16 @@
-﻿using Microsoft.Practices.Unity;
-using Remember.Models;
+﻿using Remember.Models;
 using Remember.Pages;
 using Remember.Services.Navigation.Interfaces;
 using Remember.ViewModels;
 
 namespace Remember.Services.Navigation.Views
 {
-    public class RememberPageView : IRememberPageView
+
+
+    public class RememberPageView : PageViewNavigationBaseWithParameter<RememberList, RememberListViewModel, CategoryModel>, IRememberPageView
     {
-        private readonly INavigationService _navigationService;
-
-        public RememberPageView(INavigationService navigationService)
+        public RememberPageView(INavigationService navigationService) : base(navigationService)
         {
-            _navigationService = navigationService;
-        }
-
-        public void Navigate(CategoryModel parameter)
-        {
-            _navigationService.Navigate<RememberList>();
-
-            var context = App.Container.Resolve<RememberListViewModel>();
-            context.SetParameter(parameter);
-
         }
     }
-
-
 }

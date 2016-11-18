@@ -144,12 +144,12 @@ namespace Remember.ViewModels
 
         public override void LoadViewModel()
         {
-            throw new NotImplementedException();
+
         }
 
         public override void UnLoadViewModel()
         {
-            throw new NotImplementedException();
+
         }
     }
 

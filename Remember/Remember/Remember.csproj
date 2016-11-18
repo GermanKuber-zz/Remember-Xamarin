@@ -62,7 +62,7 @@
     <Compile Include="Pages\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LoginPage.xaml.cs">
+    <Compile Include="Pages\User\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Map.xaml.cs">
@@ -112,6 +112,8 @@
     <Compile Include="Services\Interfaces\IDialogService.cs" />
     <Compile Include="Services\Interfaces\ILoginService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Services\Navigation\BackService.cs" />
+    <Compile Include="Services\Navigation\IBackService.cs" />
     <Compile Include="Services\Navigation\Interfaces\INavigationService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
     <Compile Include="Services\Interfaces\IProxyService.cs" />
@@ -128,7 +130,9 @@
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRegisterPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IMasterPageView.cs" />
+    <Compile Include="Services\Navigation\Views\IPageViewNavigationBaseWithParameter.cs" />
     <Compile Include="Services\Navigation\Views\LogOutPageView.cs" />
+    <Compile Include="Services\Navigation\Views\MasterPageView.cs" />
     <Compile Include="Services\Navigation\Views\NewRememberPageView.cs" />
     <Compile Include="Services\Navigation\Views\PageViewNavigationBase.cs" />
     <Compile Include="Services\Navigation\Views\RegisterPageView.cs" />
@@ -329,7 +333,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\LoginPage.xaml">
+    <EmbeddedResource Include="Pages\User\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

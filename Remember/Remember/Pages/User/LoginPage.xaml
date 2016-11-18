@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviorCustoms="clr-namespace:Remember.BehaviorCustoms;assembly=Remember"
              x:Class="Remember.Pages.LoginPage"
              Title="Remember"
              BackgroundColor="{StaticResource BackgroundColor}"
@@ -27,16 +28,25 @@
           Placeholder="Email"
           Keyboard="Email"
           Text="{Binding Email, Mode=TwoWay}"
-          TextColor="{StaticResource FontColor}"></Entry>
+          TextColor="{StaticResource FontColor}">
+      <Entry.Behaviors>
+        <behaviorCustoms:EmailValidatorBehavior IsValid="{Binding IsEmailValid,Mode=TwoWay}" x:Name="emailValidator"/>
+      </Entry.Behaviors>
+    </Entry>
 
     <Entry
           Placeholder="Password"
           IsPassword="true"
-            Text="{Binding Password, Mode=TwoWay}"
-          TextColor="{StaticResource FontColor}"></Entry>
+          Text="{Binding Password, Mode=TwoWay}"
+          TextColor="{StaticResource FontColor}">
+      <Entry.Behaviors>
+        <behaviorCustoms:EntryNotNullBehavior IsValid="{Binding IsPasswordValid,Mode=TwoWay}"></behaviorCustoms:EntryNotNullBehavior>
+      </Entry.Behaviors>
+    </Entry>
     <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
       <Button Text="Login"
-                  Margin="10"
+              Margin="10"
+              IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
               Command="{Binding LoginCommand}"
               TextColor="{StaticResource MenuColor}"
               BackgroundColor="{StaticResource MainColor}"
@@ -45,11 +55,13 @@
 
       <Button Text="Register"
           Command="{Binding RegisterCommand}"
-              Margin="10"
-                    TextColor="{StaticResource MenuColor}"
+          Margin="10"
+          IsEnabled="{Binding IsValidModel, Mode=TwoWay}"
+          TextColor="{StaticResource MenuColor}"
           BackgroundColor="{StaticResource MainColor}"
           HorizontalOptions="Center"
           VerticalOptions="Center"></Button>
+      <Entry Text="{Binding IsValidModel,Mode=TwoWay}"></Entry>
     </StackLayout>
     <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsRunning}">
 

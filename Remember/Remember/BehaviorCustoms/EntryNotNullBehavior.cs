@@ -18,7 +18,6 @@ namespace Remember.BehaviorCustoms
         {
             base.OnAttachedTo(bindable);
             bindable.TextChanged += OnTextChanged;
-            base.OnAttachedTo(bindable);
         }
 
         protected override void OnDetachingFrom(Entry bindable)

@@ -7,7 +7,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class LoginViewModel : NotificationChangedBase
+    public class LoginViewModel : ViewModelBase
     {
 
         private readonly IDialogService _dialogService;
@@ -15,6 +15,36 @@ namespace Remember.ViewModels
         private readonly IMasterPageView _masterPageView;
         private readonly ILoginService _loginService;
 
+
+        #region Properties Validation
+
+        private bool _isPasswordValid;
+        public bool IsPasswordValid
+        {
+            get { return _isPasswordValid; }
+            set
+            {
+                this._isPasswordValid = value;
+                this.OnPropertyChanged();
+                Validate();
+            }
+        }
+
+
+
+        private bool _isEmailValid;
+        public bool IsEmailValid
+        {
+            get { return _isEmailValid; }
+            set
+            {
+                this._isEmailValid = value;
+                this.OnPropertyChanged();
+                Validate();
+            }
+        }
+
+        #endregion
         #region Properties
 
         private string _email;
@@ -31,8 +61,6 @@ namespace Remember.ViewModels
                 this.OnPropertyChanged();
             }
         }
-
-
         public string Password { get; set; }
         public bool IsRemembered { get; set; } = true;
         private bool _IsRunning = false;
@@ -120,12 +148,32 @@ namespace Remember.ViewModels
                     this.IsRemembered = false;
                 }
             }
+            this.IsValidModel = false;
         }
 
         #endregion
 
         #region Private Methods
+        private void Validate()
+        {
+            if (this.IsPasswordValid && this.IsEmailValid)
+                this.IsValidModel = true;
+            else
+                this.IsValidModel = false;
+        }
+        #endregion
+
+        #region Override Methods
+
+        public override void LoadViewModel()
+        {
+        }
+
+        public override void UnLoadViewModel()
+        {
+        }
 
         #endregion
+
     }
 }
