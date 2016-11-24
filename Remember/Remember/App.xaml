@@ -9,11 +9,14 @@
     <ResourceDictionary>
       <Color x:Key="MainColor">#522A2F</Color>
       <Color x:Key="FontColor">#522A2F</Color>
-
       <Color x:Key="MenuColor">#C4C4C3</Color>
       <Color x:Key="MenuFontColor">#004234</Color>
       <Color x:Key="BackgroundColor">#C4C4C3</Color>
       <Color x:Key="AccentColor">#004234</Color>
+
+      <Color x:Key="Update">#F2780C</Color>
+      <Color x:Key="Cancel">#8D3024</Color>
+      <Color x:Key="Complete">#0BBFC1</Color>
 
       <viewModels:LocatorViewModel x:Key="Locator"></viewModels:LocatorViewModel>
 
@@ -62,6 +65,7 @@
       <!--Converters-->
 
       <converters:NegateBoolConverter x:Key="NegateBoolConverter"></converters:NegateBoolConverter>
+      <converters:AddPorcentConverter x:Key="AddPorcentConverter"></converters:AddPorcentConverter>
       <converters:EnableWithOutStringEmptyConverter x:Key="EnableWithOutStringEmptyConverter"></converters:EnableWithOutStringEmptyConverter>
 
     </ResourceDictionary>

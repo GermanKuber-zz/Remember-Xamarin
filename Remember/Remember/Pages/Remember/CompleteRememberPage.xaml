@@ -10,19 +10,36 @@
     <abstractions:CircleImage
             Margin="10"
             Source="{Binding Remember.Image}"
-      
       BorderThickness="1"
       BorderColor="{StaticResource FontColor}"
       HeightRequest="110"
       WidthRequest="110">
-
     </abstractions:CircleImage>
+    <Label FontSize="24" Text="{Binding Remember.Name}"></Label>
     <TableView>
       <TableSection>
-        <TextCell  Text="{Binding Remember.Name}"></TextCell>
-        <TextCell  Text="{Binding Remember.Note}"></TextCell>
+        <TextCell Text="Notes"></TextCell>
+        <EntryCell  Text="{Binding Remember.Note}"></EntryCell>
+        <TextCell Text="Precio"></TextCell>
+        <EntryCell  Text="{Binding Remember.Price}"></EntryCell>
+        <ViewCell>
+          <StackLayout></StackLayout>
+        </ViewCell>
       </TableSection>
     </TableView>
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Cantidad"></Label>
+      <Stepper   Minimum="0" Maximum="100" Value="{Binding Remember.DebtCount,Mode=TwoWay}"></Stepper>
+      <Label Text="{Binding Remember.DebtCount,Mode=TwoWay}"></Label>
+      <Entry Text="{Binding Remember.DebtCount,Mode=TwoWay}"></Entry>
+    </StackLayout>
+
+    <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
+      <Button Text="Complete" BackgroundColor="{StaticResource Complete}" Command="{Binding CompleteCommand}"></Button>
+      <Button Text="Update" BackgroundColor="{StaticResource Update}" Command="{Binding UpdateCommand}"></Button>
+      <Button Text="Cancel" BackgroundColor="{StaticResource Cancel}" Command="{Binding CancelCommand}"></Button>
+
+    </StackLayout>
   </StackLayout>
   <ContentPage.ToolbarItems>
     <ToolbarItem Icon="scanner.png" Command="{Binding ReadCodeCommand}"></ToolbarItem>

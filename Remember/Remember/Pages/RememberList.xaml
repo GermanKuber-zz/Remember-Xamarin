@@ -29,7 +29,6 @@
         <behaviorCustoms:EventToCommandBehavior EventName="Completed" Command="{Binding NewRememberCommand}" />
       </Entry.Behaviors>
     </Entry>
-
     <ListView
       IsPullToRefreshEnabled="True"
       ItemsSource="{Binding Remembers,Mode=TwoWay}"

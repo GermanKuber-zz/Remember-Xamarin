@@ -64,6 +64,7 @@ namespace Remember.Services.Navigation
 
                 Application.Current.MainPage = _navigationPage;
 
+
             }
             else
             {
@@ -80,6 +81,10 @@ namespace Remember.Services.Navigation
         {
             _masterPage = masterPage;
             _navigationPage = navigationPage;
+            _navigationPage.Popped += (sender, args) =>
+            {
+                ((ViewModelBase)_navigationPage.CurrentPage?.BindingContext)?.LoadViewModel();
+            };
         }
     }
 }

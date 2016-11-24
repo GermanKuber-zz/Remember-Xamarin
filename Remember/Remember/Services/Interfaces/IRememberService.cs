@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Remember.Models;
 
-namespace Remember.Services
+namespace Remember.Services.Interfaces
 {
     public interface IRememberService
     {
@@ -9,5 +9,6 @@ namespace Remember.Services
         List<RememberModel> GetAll(CategoryModel category, string filterName, bool local = false);
         Response<RememberModel> Insert(CategoryModel category, RememberModel rememberZone);
         RememberModel GetByExactName(CategoryModel category, string rememberName, bool local = false);
+        void Update(RememberModel remember);
     }
 }

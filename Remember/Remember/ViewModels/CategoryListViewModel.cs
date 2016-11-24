@@ -8,7 +8,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class CategoryListViewModel : NotificationChangedBase
+    public class CategoryListViewModel : ViewModelBase
     {
         private readonly ICategoryService _categoryService;
         private readonly ILoginService _loginService;
@@ -46,7 +46,7 @@ namespace Remember.ViewModels
                 SelectCategory();
             }
         }
-        public ObservableCollection<CategoryModel> CategoryModel { get; set; }
+        public ObservableCollection<CategoryModel> CategoryList { get; set; }
 
         public User LogedUser => _loginService.LogedUser;
 
@@ -92,18 +92,30 @@ namespace Remember.ViewModels
 
         private void LoadAllRemember(List<CategoryModel> list)
         {
-            if (CategoryModel == null)
-                CategoryModel = new ObservableCollection<CategoryModel>();
+            if (CategoryList == null)
+                CategoryList = new ObservableCollection<CategoryModel>();
             else
-                CategoryModel.Clear();
+                CategoryList.Clear();
 
             if (list != null)
             {
                 foreach (var rememberZone in list)
                 {
-                    CategoryModel.Add(rememberZone);
+                    CategoryList.Add(rememberZone);
                 }
             }
+        }
+
+        public override void LoadViewModel()
+        {
+            var response = this._categoryService.GetAll();
+            LoadAllRemember(response);
+            CategorySelected = null;
+        }
+
+        public override void UnLoadViewModel()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

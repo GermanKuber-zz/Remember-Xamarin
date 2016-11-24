@@ -130,25 +130,10 @@ namespace Remember.ViewModels
             IRegisterPageView registerPageView,
             IMasterPageView masterPageView)
         {
-
             _loginService = loginService;
             _dialogService = dialogService;
             _registerPageView = registerPageView;
             _masterPageView = masterPageView;
-
-
-            if (loginService.LogedUser != null)
-            {
-                if (loginService.LogedUser.IsRemember)
-                    _masterPageView.Navigate();
-                else
-                {
-                    this.Password = loginService.LogedUser.Password;
-                    this.Email = loginService.LogedUser.Email;
-                    this.IsRemembered = false;
-                }
-            }
-
         }
 
         #endregion

@@ -9,10 +9,5 @@ namespace Remember.Pages
         {
             InitializeComponent();
         }
-
-        private void Entry_OnCompleted(object sender, EventArgs e)
-        {
-
-        }
     }
 }

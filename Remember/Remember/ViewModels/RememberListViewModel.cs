@@ -99,10 +99,9 @@ namespace Remember.ViewModels
 
             this.Parameter = parameter;
             this.NewRemember = string.Empty;
-            SetRemembers(parameter.Remembers);
         }
 
-        private void SetRemembers(List<RememberModel> parameter)
+        private void LoadAllRemembersRemembers(List<RememberModel> parameter)
         {
 
             if (parameter != null)
@@ -134,17 +133,18 @@ namespace Remember.ViewModels
             _rememberService = rememberService;
             _newRememberPageView = newRememberPageView;
             _completeRememberPageView = completeRememberPageView;
+
         }
 
         private void SearchRemember()
         {
             var list = this._rememberService.GetAll(this.Parameter, this.NewRemember, true);
-            SetRemembers(list);
+            LoadAllRemembersRemembers(list);
         }
 
         public override void LoadViewModel()
         {
-
+            LoadAllRemembersRemembers(_parameter.Remembers);
         }
 
         public override void UnLoadViewModel()

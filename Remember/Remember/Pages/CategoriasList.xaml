@@ -19,8 +19,9 @@
           Placeholder="Buscar..."
           Text="{Binding Filter,Mode=TwoWay}"
           SearchCommand="{Binding SearchCategoryCommand}"></SearchBar>
+
     <ListView
-      ItemsSource="{Binding CategoryModel,Mode=TwoWay}"
+      ItemsSource="{Binding CategoryList,Mode=TwoWay}"
       HasUnevenRows="True"
       SelectedItem="{Binding CategorySelected}"
       ItemTemplate="{StaticResource CategoriasDataTemplate}">

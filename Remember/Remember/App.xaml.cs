@@ -23,10 +23,9 @@ namespace Remember
         {
             InitializeComponent();
             Register();
-            var navigate = App.Container.Resolve<INavigationService>();
+            var application = App.Container.Resolve<IApplicationService>();
 
-            navigate.SetMainPage<LoginPage>();
-
+            application.Start();
 
 
         }
@@ -53,6 +52,7 @@ namespace Remember
             Container.RegisterType<ILogOutPageView, LogOutPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IRegisterPageView, RegisterPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IMasterPageView, MasterPageView>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ILoginPageView, LoginPageView>(new ContainerControlledLifetimeManager());
 
 
 
@@ -80,6 +80,8 @@ namespace Remember
             Container.RegisterType<IScanService, ScanService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IProxyService, ProxyService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IBackService, BackService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IApplicationService, ApplicationService>(new ContainerControlledLifetimeManager());
+
 
 
 

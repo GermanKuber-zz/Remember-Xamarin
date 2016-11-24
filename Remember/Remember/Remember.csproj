@@ -102,10 +102,13 @@
     <Compile Include="Repositories\IRememberRepository.cs" />
     <Compile Include="Repositories\IRememberZoneRepository.cs" />
     <Compile Include="Repositories\MockCategoryRepository.cs" />
-    <Compile Include="Repositories\RememberZoneRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\MockRememberRepository.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\Interfaces\IApplicationService.cs" />
     <Compile Include="Services\Interfaces\INetService.cs" />
     <Compile Include="Services\Interfaces\IApiService.cs" />
     <Compile Include="Services\Interfaces\IMenuFactory.cs" />
@@ -117,7 +120,7 @@
     <Compile Include="Services\Navigation\Interfaces\INavigationService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
     <Compile Include="Services\Interfaces\IProxyService.cs" />
-    <Compile Include="Services\IRememberService.cs" />
+    <Compile Include="Services\Interfaces\IRememberService.cs" />
     <Compile Include="Services\Interfaces\IScanService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MenuFactory.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRegisterPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IMasterPageView.cs" />
+    <Compile Include="Services\Navigation\Views\ILoginPageView.cs" />
     <Compile Include="Services\Navigation\Views\IPageViewNavigationBaseWithParameter.cs" />
     <Compile Include="Services\Navigation\Views\LogOutPageView.cs" />
     <Compile Include="Services\Navigation\Views\MasterPageView.cs" />
@@ -139,6 +143,7 @@
     <Compile Include="Services\Navigation\Views\RememberPageView.cs" />
     <Compile Include="Services\NetService.cs" />
     <Compile Include="Services\ProxyService.cs" />
+    <Compile Include="Services\RememberService.cs" />
     <Compile Include="Services\ScanService.cs" />
     <Compile Include="ViewModels\IViewModelBase.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />

@@ -23,4 +23,18 @@ namespace Remember.Services.Navigation.Views
 
         }
     }
+    public class LoginPageView : ILoginPageView
+    {
+        private readonly INavigationService _navigationService;
+
+        public LoginPageView(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
+        public void Navigate()
+        {
+            _navigationService.SetMainPage<LoginPage>();
+        }
+    }
 }

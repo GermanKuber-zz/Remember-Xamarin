@@ -4,7 +4,7 @@ using SQLiteNetExtensions.Attributes;
 namespace Remember.Models
 {
 
-    public class RememberModel
+    public class Remember
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -27,5 +27,10 @@ namespace Remember.Models
             return Id;
 
         }
+    }
+
+    public class RememberModel
+    {
+
     }
 }
