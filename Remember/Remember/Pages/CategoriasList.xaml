@@ -23,12 +23,10 @@
     <ListView
       ItemsSource="{Binding CategoryList,Mode=TwoWay}"
       HasUnevenRows="True"
-      SelectedItem="{Binding CategorySelected}"
+         SelectedItem="{Binding CategorySelected,Mode=TwoWay}"
       ItemTemplate="{StaticResource CategoriasDataTemplate}">
 
-      <ListView.GestureRecognizers>
-        <TapGestureRecognizer Command="{Binding SelectCategoryCommand}"></TapGestureRecognizer>
-      </ListView.GestureRecognizers>
+
 
     </ListView>
 

@@ -69,11 +69,13 @@ namespace Remember.ViewModels
             }
             set
             {
-                _rememberModel = value;
-                OnPropertyChanged();
-                if (value != null)
-                    NavigateCompleteRemember(this.RememberSelected);
-
+                if (_rememberModel != value)
+                {
+                    _rememberModel = value;
+                    OnPropertyChanged();
+                    if (value != null)
+                        NavigateCompleteRemember(this.RememberSelected);
+                }
             }
         }
         public ObservableCollection<RememberModel> Remembers { get; set; }

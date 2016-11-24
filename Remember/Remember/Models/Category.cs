@@ -23,7 +23,7 @@ namespace Remember.Models
             get
             {
                 if (this.Remembers != null)
-                    return this.Remembers.ToList().Count;
+                    return this.Remembers.Where(x => x.DebtCount > 0).ToList().Count;
                 else
                     return 0;
             }

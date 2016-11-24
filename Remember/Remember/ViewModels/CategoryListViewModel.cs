@@ -42,9 +42,13 @@ namespace Remember.ViewModels
             }
             set
             {
-                _categorySelected = value;
-                OnPropertyChanged();
-                SelectCategory();
+                if (_categorySelected != value)
+                {
+
+                    _categorySelected = value;
+                    OnPropertyChanged();
+                    SelectCategory();
+                }
             }
         }
         public ObservableCollection<CategoryModel> CategoryList { get; set; }
