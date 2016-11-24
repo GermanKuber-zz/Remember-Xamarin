@@ -140,7 +140,11 @@ namespace Remember.ViewModels
 
         private void SearchRemember()
         {
-            var list = this._rememberService.GetAllNoCompleted(this.Parameter, this.NewRemember, true);
+            var list = new List<RememberModel>();
+            if (!string.IsNullOrWhiteSpace(this.NewRemember))
+                list = this._rememberService.GetAll(this.Parameter, this.NewRemember, true);
+            else
+                list = this._rememberService.GetAllNoCompleted(this.Parameter, this.NewRemember, true);
             LoadAllRemembersRemembers(list);
         }
 
