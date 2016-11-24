@@ -10,5 +10,6 @@ namespace Remember.Models
         {
             return PermissionId;
         }
+
     }
 }

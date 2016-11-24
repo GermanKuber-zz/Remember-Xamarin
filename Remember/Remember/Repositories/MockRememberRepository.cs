@@ -8,7 +8,7 @@ namespace Remember.Repositories
 {
     public class MockRememberRepository : IRememberRepository
     {
-        private List<RememberModel> _list;
+        private List<RememberData> _list;
 
         public MockRememberRepository()
         {
@@ -17,7 +17,7 @@ namespace Remember.Repositories
 
         private void GetAllRemembers(CategoryModel category)
         {
-            _list = new List<RememberModel>();
+            _list = new List<RememberData>();
             if (DbContext.Categories != null)
             {
                 foreach (var categorie in DbContext.Categories)
@@ -37,9 +37,9 @@ namespace Remember.Repositories
                 }
             }
         }
-        private RememberModel GetRemember(RememberModel model)
+        private RememberData GetRemember(RememberData model)
         {
-            _list = new List<RememberModel>();
+            _list = new List<RememberData>();
             if (DbContext.Categories != null)
             {
                 foreach (var categorie in DbContext.Categories)
@@ -57,13 +57,13 @@ namespace Remember.Repositories
         }
 
 
-        public List<RememberModel> GetAll(CategoryModel category)
+        public List<RememberData> GetAll(CategoryModel category)
         {
             GetAllRemembers(category);
             return _list;
         }
 
-        public RememberModel GetByExactName(CategoryModel category, string rememberName)
+        public RememberData GetByExactName(CategoryModel category, string rememberName)
         {
             GetAllRemembers(category);
 
@@ -72,10 +72,10 @@ namespace Remember.Repositories
             return _list.FirstOrDefault(x => x.Name.ToUpper() == rememberName.ToUpper());
         }
 
-        public void Update(RememberModel model)
+        public void Update(RememberData model)
         {
 
-            _list = new List<RememberModel>();
+            _list = new List<RememberData>();
             if (DbContext.Categories != null)
             {
                 foreach (var categorie in DbContext.Categories)
@@ -88,20 +88,24 @@ namespace Remember.Repositories
                         {
                             categorie.Remembers.Remove(remember);
                             categorie.Remembers.Add(model);
+                            return;
+
                         }
                     }
                 }
             }
         }
 
-        public Response<RememberModel> Insert(RememberModel rememberZone)
+
+
+        public Response<RememberData> Insert(RememberData rememberZone)
         {
             using (var da = new DataAccess())
             {
                 try
                 {
-                    da.Insert<RememberModel>(rememberZone);
-                    return new Response<RememberModel>
+                    da.Insert<RememberData>(rememberZone);
+                    return new Response<RememberData>
                     {
                         IsSuccess = true,
                         Result = rememberZone
@@ -109,7 +113,7 @@ namespace Remember.Repositories
                 }
                 catch (Exception ex)
                 {
-                    return new Response<RememberModel>
+                    return new Response<RememberData>
                     {
                         IsSuccess = false,
                         Message = ex.Message

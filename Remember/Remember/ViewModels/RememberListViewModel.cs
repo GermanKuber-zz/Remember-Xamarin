@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Remember.Models;
-using Remember.Services;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
 
@@ -138,13 +138,15 @@ namespace Remember.ViewModels
 
         private void SearchRemember()
         {
-            var list = this._rememberService.GetAll(this.Parameter, this.NewRemember, true);
+            var list = this._rememberService.GetAllNoCompleted(this.Parameter, this.NewRemember, true);
             LoadAllRemembersRemembers(list);
         }
 
         public override void LoadViewModel()
         {
-            LoadAllRemembersRemembers(_parameter.Remembers);
+            var list = this._rememberService.GetAllNoCompleted(this.Parameter, this.NewRemember, true);
+            //TODO Cambiar a CategoryModel
+            LoadAllRemembersRemembers(list);
         }
 
         public override void UnLoadViewModel()

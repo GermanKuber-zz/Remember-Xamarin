@@ -8,7 +8,7 @@ using XLabs;
 
 namespace Remember.ViewModels.Remembers
 {
-    public class CompleteRememberViewModel : NotificationChangedBase, INavigatedViewModel<RememberModel>
+    public class CompleteRememberViewModel : ViewModelBase, INavigatedViewModel<RememberModel>
     {
         private readonly IScanService _scanService;
         private readonly IBackService _backService;
@@ -63,7 +63,9 @@ namespace Remember.ViewModels.Remembers
         #region  Private Methods
         private void Complete()
         {
+            this.Remember.DebtCount = 0;
             _rememberService.Update(this.Remember);
+            _backService.Back();
         }
         private void Cancel()
         {
@@ -72,9 +74,20 @@ namespace Remember.ViewModels.Remembers
         private void Update()
         {
             _rememberService.Update(this.Remember);
+            _backService.Back();
         }
 
 
         #endregion
+
+        public override void LoadViewModel()
+        {
+
+        }
+
+        public override void UnLoadViewModel()
+        {
+
+        }
     }
 }

@@ -5,9 +5,9 @@ namespace Remember.Repositories
 {
     public interface IRememberRepository
     {
-        List<RememberModel> GetAll(CategoryModel category);
-        Response<RememberModel> Insert(RememberModel rememberZone);
-        RememberModel GetByExactName(CategoryModel category, string rememberName);
-        void Update(RememberModel model);
+        List<RememberData> GetAll(CategoryModel category);
+        Response<RememberData> Insert(RememberData rememberZone);
+        RememberData GetByExactName(CategoryModel category, string rememberName);
+        void Update(RememberData model);
     }
 }

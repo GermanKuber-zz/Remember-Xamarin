@@ -21,12 +21,12 @@ namespace Remember.Data
 
             //_connection.DeleteAll<User>();
             //_connection.DeleteAll<CategoryModel>();
-            //_connection.DeleteAll<RememberModel>();
+            //_connection.DeleteAll<RememberData>();
 
             _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
             _connection.CreateTable<CategoryModel>();
-            _connection.CreateTable<RememberModel>();
+            _connection.CreateTable<RememberData>();
         }
 
         public void Insert<T>(T model)

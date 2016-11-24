@@ -22,17 +22,18 @@
         <EntryCell  Text="{Binding Remember.Note}"></EntryCell>
         <TextCell Text="Precio"></TextCell>
         <EntryCell  Text="{Binding Remember.Price}"></EntryCell>
+        <TextCell Text="Cantidad Faltante"></TextCell>
         <ViewCell>
-          <StackLayout></StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Button Text="-" Margin="10,0,10,0" BackgroundColor="{StaticResource Cancel}" Command="{Binding Remember.PopDebtCommand}"></Button>
+            <Button  Text="+" Margin="10,0,10,0" BackgroundColor="{StaticResource Complete}" Command="{Binding Remember.AddDebtCommand}"></Button>
+
+            <Label VerticalOptions="Center" Margin="25,0,10,0" FontSize="24" Text="{Binding Remember.DebtCount,Mode=TwoWay}"></Label>
+          </StackLayout>
         </ViewCell>
       </TableSection>
     </TableView>
-    <StackLayout Orientation="Horizontal">
-      <Label Text="Cantidad"></Label>
-      <Stepper   Minimum="0" Maximum="100" Value="{Binding Remember.DebtCount,Mode=TwoWay}"></Stepper>
-      <Label Text="{Binding Remember.DebtCount,Mode=TwoWay}"></Label>
-      <Entry Text="{Binding Remember.DebtCount,Mode=TwoWay}"></Entry>
-    </StackLayout>
+
 
     <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
       <Button Text="Complete" BackgroundColor="{StaticResource Complete}" Command="{Binding CompleteCommand}"></Button>

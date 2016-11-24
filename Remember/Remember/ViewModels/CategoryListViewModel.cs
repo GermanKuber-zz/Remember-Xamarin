@@ -31,6 +31,7 @@ namespace Remember.ViewModels
                 SearchCategory();
             }
         }
+
         private CategoryModel _categorySelected;
         public CategoryModel CategorySelected
         {

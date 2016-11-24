@@ -5,8 +5,8 @@ using Xamarin.Forms;
 
 namespace Remember.Services.Navigation.Views
 {
-    public class PageViewNavigationBase<TPage, TViewModel> : IPageViewNavigationBase where TPage : Page, new()
-        where TViewModel : IViewModelBase
+    public class PageViewNavigationBase<TPage, TViewModel, TParameter> : IPageViewNavigationBase where TPage : Page, new()
+        where TViewModel : IViewModelBase, INavigatedViewModel<TParameter>
     {
         protected readonly INavigationService NavigationService;
 

@@ -25,20 +25,20 @@ namespace Remember.Repositories
                 Id = 1,
                 Active = true,
                 Image = "http://america-retail.com/static/2012/05/Logo-Dir-Arg-Coto.jpg",
-                Remembers = new List<RememberModel> {
-                    new RememberModel {
+                Remembers = new List<RememberData> {
+                    new RememberData {
                         Name = "Coca Cola",
                          DebtCount  = 1,
                          //ExpirationDate = DateTime.Now.AddDays(5),
                          Image = "https://cdn.shopify.com/s/files/1/0706/6309/products/coca-cola-botella-desechable-3-litros_large.jpg?v=1441256902"
                     },
-                            new RememberModel {
+                            new RememberData {
                         Name = "Fideos",
                          DebtCount  = 5,
                          //ExpirationDate = DateTime.Now.AddDays(9),
                          Image = "http://infinito.pe/sites/default/files/fideo-tallarin3.jpg"
                     },
-                                    new RememberModel {
+                                    new RememberData {
                         Name = "Casancrem",
                          DebtCount  = 2,
                          //ExpirationDate = DateTime.Now.AddDays(2),
@@ -50,20 +50,20 @@ namespace Remember.Repositories
                 Order = 1,
                 Id = 2,
                 Active = true,
-                 Remembers = new List<RememberModel> {
-                    new RememberModel {
+                 Remembers = new List<RememberData> {
+                    new RememberData {
                         Name = "Pan",
                          DebtCount  = 1,
                          //ExpirationDate = DateTime.Now.AddDays(5),
                          Image = "https://cdn.shopify.com/s/files/1/0706/6309/products/coca-cola-botella-desechable-3-litros_large.jpg?v=1441256902"
                     },
-                            new RememberModel {
+                            new RememberData {
                         Name = "Fideos",
                          DebtCount  = 5,
                          //ExpirationDate = DateTime.Now.AddDays(9),
                          Image = "http://infinito.pe/sites/default/files/fideo-tallarin3.jpg"
                     },
-                                    new RememberModel {
+                                    new RememberData {
                         Name = "Casancrem",
                          DebtCount  = 2,
                          //ExpirationDate = DateTime.Now.AddDays(2),

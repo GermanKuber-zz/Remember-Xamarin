@@ -4,7 +4,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class MasterPageViewModel : ViewModelBase
+    public class MasterPageViewModel : ViewModelBase, INavigatedViewModel<object>
 
     {
         public override void LoadViewModel()
@@ -15,6 +15,12 @@ namespace Remember.ViewModels
         public override void UnLoadViewModel()
         {
             throw new System.NotImplementedException();
+        }
+
+        public object Parameter { get; set; }
+        public void SetParameter(object parameter)
+        {
+            this.Parameter = parameter;
         }
     }
 

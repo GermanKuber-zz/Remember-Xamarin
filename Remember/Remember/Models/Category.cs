@@ -11,6 +11,7 @@ namespace Remember.Models
     public class CategoryModel
     {
 
+
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
@@ -32,7 +33,7 @@ namespace Remember.Models
 
         public bool Active { get; set; }
         [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<RememberModel> Remembers { get; set; }
+        public List<RememberData> Remembers { get; set; }
 
         public DateTime LastExpiration { get; set; }
         public override int GetHashCode()

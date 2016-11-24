@@ -4,7 +4,7 @@ using Remember.ViewModels;
 
 namespace Remember.Services.Navigation.Views
 {
-    public class MasterPageView : PageViewNavigationBase<MasterPage, MasterPageViewModel>, IMasterPageView
+    public class MasterPageView : PageViewNavigationBase<MasterPage, MasterPageViewModel, object>, IMasterPageView
     {
         public MasterPageView(INavigationService navigationService) : base(navigationService)
         {
