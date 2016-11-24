@@ -1,5 +1,6 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
+using Remember.Data;
 using Remember.Pages;
 using Remember.Repositories;
 using Remember.Services;
@@ -23,12 +24,15 @@ namespace Remember
         {
             InitializeComponent();
             Register();
+            var data = new DataDummy();
+            data.GenerateDataDummy();
             var application = App.Container.Resolve<IApplicationService>();
-
             application.Start();
 
 
         }
+
+
 
         private void Register()
         {
@@ -60,8 +64,8 @@ namespace Remember
 
         private static void RegisterRepositories()
         {
-            Container.RegisterType<ICategoryRepository, MockCategoryRepository>(new ContainerControlledLifetimeManager());
-            Container.RegisterType<IRememberRepository, MockRememberRepository>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ICategoryRepository, CategoryRepository>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IRememberRepository, RememberRepository>(new ContainerControlledLifetimeManager());
 
 
         }

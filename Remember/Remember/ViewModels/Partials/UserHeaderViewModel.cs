@@ -1,4 +1,5 @@
-﻿using Remember.Models;
+﻿using Remember.Data;
+using Remember.Models;
 using Remember.Services.Interfaces;
 
 namespace Remember.ViewModels.Partials

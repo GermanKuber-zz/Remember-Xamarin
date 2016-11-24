@@ -1,4 +1,5 @@
-﻿using Remember.Models;
+﻿using Remember.Data;
+using Remember.Models;
 using Remember.Pages.User;
 using Remember.Services.Navigation.Interfaces;
 using Remember.ViewModels;

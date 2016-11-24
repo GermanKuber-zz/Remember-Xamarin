@@ -23,7 +23,7 @@
 
       <DataTemplate x:Key="CategoriasDataTemplate">
         <ViewCell>
-          <Grid Padding="8">
+          <Grid Padding="2">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"></ColumnDefinition>
               <ColumnDefinition Width="*"></ColumnDefinition>
@@ -31,8 +31,8 @@
             <Image
             Source="{Binding Image}"
             VerticalOptions="Start"
-            HeightRequest="100"
-            WidthRequest="100"></Image>
+            HeightRequest="80"
+            WidthRequest="80"></Image>
             <StackLayout Grid.Column="1">
               <Grid>
                 <Grid.ColumnDefinitions>
@@ -43,14 +43,14 @@
                 <Label FontAttributes="Bold"
                              Margin="20"
                        Grid.Column="0"
-                       FontSize="28"
+                       FontSize="24"
                        VerticalOptions="Center"
                        TextColor="{StaticResource FontColor}"
                        Text="{Binding Name}"></Label>
                 <Label FontAttributes="Bold"
                         Margin="20"
                         Grid.Column="1"
-                        FontSize="28"
+                        FontSize="24"
                         VerticalOptions="Center"
                         TextColor="{StaticResource FontColor}"
                         Text="{Binding CountRemembers}"></Label>

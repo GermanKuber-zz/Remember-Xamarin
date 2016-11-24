@@ -1,6 +1,6 @@
 ﻿using SQLite.Net.Attributes;
 
-namespace Remember.Models
+namespace Remember.Data
 {
     public class User
     {

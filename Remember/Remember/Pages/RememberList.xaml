@@ -5,7 +5,7 @@
 
              xmlns:behaviorCustoms="clr-namespace:Remember.BehaviorCustoms;assembly=Remember"
              x:Class="Remember.Pages.RememberList"
-             Title="Remember This"
+             Title="{Binding Parameter.Name}"
              BackgroundColor="{StaticResource BackgroundColor}"
              BindingContext="{Binding RememberListViewModel,Source={StaticResource Locator}}">
   <!--<ContentPage.Behaviors>

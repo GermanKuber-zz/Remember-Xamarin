@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using Remember.Data;
 using Remember.Models;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
@@ -80,7 +81,7 @@ namespace Remember.ViewModels
         private void SearchCategory()
         {
             var response = this._categoryService.GetAll(this.Filter, true);
-            LoadAllRemember(response);
+            LoadAll(response);
         }
 
         #endregion
@@ -91,11 +92,11 @@ namespace Remember.ViewModels
             _loginService = loginService;
             _rememberPageView = rememberPageView;
 
-            var response = this._categoryService.GetAll();
-            LoadAllRemember(response);
+            var response = this._categoryService.GetAll(true);
+            LoadAll(response);
         }
 
-        private void LoadAllRemember(List<CategoryModel> list)
+        private void LoadAll(List<CategoryModel> list)
         {
             if (CategoryList == null)
                 CategoryList = new ObservableCollection<CategoryModel>();
@@ -113,8 +114,8 @@ namespace Remember.ViewModels
 
         public override void LoadViewModel()
         {
-            var response = this._categoryService.GetAll();
-            LoadAllRemember(response);
+            var response = this._categoryService.GetAll(true);
+            LoadAll(response);
             CategorySelected = null;
         }
 

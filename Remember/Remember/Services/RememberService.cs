@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Remember.Data;
 using Remember.Models;
 using Remember.Repositories;
 using Remember.Services.Interfaces;
@@ -87,9 +88,9 @@ namespace Remember.Services
             return this.GetAll(category, filterName, local).Where(x => x.DebtCount > 0).ToList();
         }
 
-        public Response<RememberModel> Insert(CategoryModel category, RememberModel rememberZone)
+        public Response<RememberModel> Insert(CategoryModel category, RememberModel remember)
         {
-            var response = _rememberRepository.Insert(rememberZone.RememberData);
+            var response = _rememberRepository.Insert(category, remember.RememberData);
             if (response.IsSuccess)
                 return new Response<RememberModel> { IsSuccess = true, Result = new RememberModel(response.Result) };
             else

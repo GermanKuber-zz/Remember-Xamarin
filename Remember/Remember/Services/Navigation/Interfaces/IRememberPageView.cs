@@ -1,4 +1,5 @@
-﻿using Remember.Models;
+﻿using Remember.Data;
+using Remember.Models;
 
 namespace Remember.Services.Navigation.Interfaces
 {

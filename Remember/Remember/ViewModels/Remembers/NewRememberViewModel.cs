@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Plugin.Media;
+using Remember.Data;
 using Remember.Models;
 using Xamarin.Forms;
 using XLabs;
@@ -46,6 +48,9 @@ namespace Remember.ViewModels.Remembers
                 return _imageSource;
             }
         }
+
+
+
 
 
         private async void TakePicture()

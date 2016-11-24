@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Remember.Models
+namespace Remember.Data
 {
     public class Permission
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Remember.Models;
 using Remember.Services;
@@ -43,14 +44,29 @@ namespace Remember.ViewModels.Remembers
         public RememberModel Parameter { get; set; }
 
 
+        private ObservableCollection<int> _count;
+        public ObservableCollection<int> Count
+        {
+            get
+            {
+                return _count;
 
+            }
+            set
+            {
+                _count = value;
+                OnPropertyChanged();
+            }
+        }
 
         public CompleteRememberViewModel(IScanService scanService, IBackService backService, IRememberService rememberService)
         {
             _scanService = scanService;
             _backService = backService;
             _rememberService = rememberService;
+            FillCount();
         }
+
         public void SetParameter(RememberModel parameter)
         {
             if (parameter == null)
@@ -71,12 +87,24 @@ namespace Remember.ViewModels.Remembers
         {
             _backService.Back();
         }
+
+
         private void Update()
         {
             _rememberService.Update(this.Remember);
             _backService.Back();
         }
 
+        private void FillCount()
+        {
+            if (Count == null)
+                Count = new ObservableCollection<int>();
+            Count.Clear();
+            for (int i = 0; i < 100; i++)
+            {
+                Count.Add(i);
+            }
+        }
 
         #endregion
 

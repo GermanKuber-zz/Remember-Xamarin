@@ -48,17 +48,19 @@
     <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Common\Utilities.cs" />
     <Compile Include="BehaviorCustoms\ConfirmPasswordBehavior.cs" />
+    <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Converters\EnableWithOutStringEmptyConverter.cs" />
     <Compile Include="Converters\NegateBoolConverter.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Infraestructure\InstanceLocator.cs" />
     <Compile Include="Interfaces\Cross\INetworkConnection.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Permission.cs" />
-    <Compile Include="Models\RememberData.cs" />
-    <Compile Include="Models\Response.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\Permission.cs" />
+    <Compile Include="Data\RememberData.cs" />
+    <Compile Include="Models\RememberModel.cs" />
+    <Compile Include="Data\Response.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Pages\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
@@ -101,9 +103,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRememberRepository.cs" />
     <Compile Include="Repositories\IRememberZoneRepository.cs" />
-    <Compile Include="Repositories\MockCategoryRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
-    <Compile Include="Repositories\MockRememberRepository.cs" />
+    <Compile Include="Repositories\RememberRepository.cs" />
     <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\DialogService.cs" />

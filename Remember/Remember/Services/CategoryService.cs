@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Remember.Data;
 using Remember.Models;
 using Remember.Repositories;
 using Remember.Services.Interfaces;
@@ -23,21 +24,21 @@ namespace Remember.Services
             _netService = netService;
         }
 
-        public List<CategoryModel> GetAll(bool local = false)
+        public List<CategoryModel> GetAll(bool withChildren = false)
         {
-            return _categoryRepository.GetAll();
+            return _categoryRepository.GetAll(withChildren);
         }
-        public List<CategoryModel> GetAll(string filterName, bool local = false)
+        public List<CategoryModel> GetAll(string filterName, bool withChildren = false, bool local = false)
         {
             if (local)
             {
-                var list = _categoryRepository.GetAll().Where(x => x.Name.ToUpper().Contains(filterName.ToUpper())).OrderBy(x => x.Name).ToList();
+                var list = _categoryRepository.GetAll(withChildren).Where(x => x.Name.ToUpper().Contains(filterName.ToUpper())).OrderBy(x => x.Name).ToList();
                 return list;
             }
             else
             {
                 //TODO: COnsulta remoto
-                var list = _categoryRepository.GetAll().Where(x => x.Name.ToUpper().Contains(filterName.ToUpper())).OrderBy(x => x.Name).ToList();
+                var list = _categoryRepository.GetAll(withChildren).Where(x => x.Name.ToUpper().Contains(filterName.ToUpper())).OrderBy(x => x.Name).ToList();
                 return list;
             }
         }

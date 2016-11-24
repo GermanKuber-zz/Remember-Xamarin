@@ -15,25 +15,26 @@ namespace Remember.Repositories
             _apiService = apiService;
         }
 
-        public List<CategoryModel> GetAll()
+        public List<CategoryModel> GetAll(bool withChildren = false)
         {
             using (var da = new DataAccess())
             {
-                return da.GetList<CategoryModel>(false);
+                var list = da.GetList<CategoryModel>(withChildren);
+                return list;
             }
         }
 
-        public Response<CategoryModel> Insert(CategoryModel rememberZone)
+        public Response<CategoryModel> Insert(CategoryModel model)
         {
             using (var da = new DataAccess())
             {
                 try
                 {
-                    da.Insert<CategoryModel>(rememberZone);
+                    da.Insert<CategoryModel>(model);
                     return new Response<CategoryModel>
                     {
                         IsSuccess = true,
-                        Result = rememberZone
+                        Result = model
                     };
                 }
                 catch (Exception ex)

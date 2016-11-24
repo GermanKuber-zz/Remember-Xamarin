@@ -1,38 +1,10 @@
 ﻿using System.Windows.Input;
-using AutoMapper;
 using GalaSoft.MvvmLight.Command;
+using Remember.Data;
 using Remember.ViewModels;
-using SQLite;
-using SQLiteNetExtensions.Attributes;
 
 namespace Remember.Models
 {
-
-    public class RememberData
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string Image { get; set; }
-        public string Name { get; set; }
-        public int DebtCount { get; set; }
-        //public DateTime ExpirationDate { get; set; }
-        public bool Completed { get; set; }
-        public bool Active { get; set; }
-        public string Note { get; set; }
-        public decimal Price { get; set; }
-        [ForeignKey(typeof(CategoryModel))]
-        public string CategoryId { get; set; }
-        [ManyToOne]
-        public CategoryModel Category { get; set; }
-
-
-        public override int GetHashCode()
-        {
-            return Id;
-
-        }
-    }
-
     public class RememberModel : NotificationChangedBase
     {
         public RememberData RememberData { get; set; }

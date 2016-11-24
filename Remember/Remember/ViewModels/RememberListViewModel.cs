@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using Remember.Data;
 using Remember.Models;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;

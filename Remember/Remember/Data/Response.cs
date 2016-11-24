@@ -1,4 +1,4 @@
-﻿namespace Remember.Models
+﻿namespace Remember.Data
 {
     public class Response<T>
     {

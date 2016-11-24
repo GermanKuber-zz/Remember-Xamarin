@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
+using Remember.Data;
 using Remember.Models;
 using Remember.Pages.Remember;
 using Remember.Services.Navigation.Interfaces;
