@@ -6,8 +6,8 @@ namespace Remember.Services.Interfaces
 {
     public interface ICategoryService
     {
-        List<CategoryModel> GetAll(bool withChildren = false);
-        List<CategoryModel> GetAll(string filterName, bool withChildren = false, bool local = false);
-        Response<CategoryModel> Insert(CategoryModel rememberZone);
+        List<CategoryData> GetAll(bool withChildren = false);
+        List<CategoryData> GetAll(string filterName, bool withChildren = false, bool local = false);
+        Response<CategoryData> Insert(CategoryData rememberZone);
     }
 }

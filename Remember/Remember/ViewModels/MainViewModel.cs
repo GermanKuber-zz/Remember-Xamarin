@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Remember.Pages;
 using Remember.Services.Interfaces;
+using RememberPage = Remember.Pages.Remember.RememberPage;
 
 namespace Remember.ViewModels
 {

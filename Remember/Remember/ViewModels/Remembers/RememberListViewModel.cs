@@ -11,7 +11,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class RememberListViewModel : ViewModelBase, INavigatedViewModel<CategoryModel>
+    public class RememberListViewModel : ViewModelBase, INavigatedViewModel<CategoryData>
     {
         private readonly ILoginService _loginService;
         private readonly IRememberService _rememberService;
@@ -20,6 +20,13 @@ namespace Remember.ViewModels
 
         public ICommand NewRememberCommand => new RelayCommand(NewRememberAction);
         public ICommand RefreshCommand => new RelayCommand(RefreshRemembers);
+
+        public ICommand CompleteRememberCommand => new RelayCommand(CompleteRemember);
+
+        private void CompleteRemember()
+        {
+            throw new NotImplementedException();
+        }
 
         private void RefreshRemembers()
         {
@@ -84,8 +91,8 @@ namespace Remember.ViewModels
 
         #endregion
 
-        private CategoryModel _parameter;
-        public CategoryModel Parameter
+        private CategoryData _parameter;
+        public CategoryData Parameter
         {
             get { return _parameter; }
             set
@@ -94,7 +101,7 @@ namespace Remember.ViewModels
                 OnPropertyChanged();
             }
         }
-        public void SetParameter(CategoryModel parameter)
+        public void SetParameter(CategoryData parameter)
         {
             if (parameter == null)
                 throw new ArgumentNullException(nameof(parameter));

@@ -51,16 +51,20 @@
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Converters\EnableWithOutStringEmptyConverter.cs" />
     <Compile Include="Converters\NegateBoolConverter.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Infraestructure\InstanceLocator.cs" />
     <Compile Include="Interfaces\Cross\INetworkConnection.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
-    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\CategoryData.cs" />
     <Compile Include="Data\Permission.cs" />
     <Compile Include="Data\RememberData.cs" />
     <Compile Include="Models\RememberModel.cs" />
     <Compile Include="Data\Response.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Pages\Categories\NewCategoryPage.xaml.cs">
+      <DependentUpon>NewCategoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
@@ -79,10 +83,10 @@
     <Compile Include="Pages\Partials\UserHeader.xaml.cs">
       <DependentUpon>UserHeader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RememberList.xaml.cs">
+    <Compile Include="Pages\Remember\RememberList.xaml.cs">
       <DependentUpon>RememberList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RememberPage.xaml.cs">
+    <Compile Include="Pages\Remember\RememberPage.xaml.cs">
       <DependentUpon>RememberPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CategoriasList.xaml.cs">
@@ -106,9 +110,12 @@
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\RememberRepository.cs" />
     <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Services\CamareService.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\Interfaces\IMapService.cs" />
+    <Compile Include="Services\Interfaces\ICamareService.cs" />
     <Compile Include="Services\Interfaces\IApplicationService.cs" />
     <Compile Include="Services\Interfaces\INetService.cs" />
     <Compile Include="Services\Interfaces\IApiService.cs" />
@@ -116,6 +123,7 @@
     <Compile Include="Services\Interfaces\IDialogService.cs" />
     <Compile Include="Services\Interfaces\ILoginService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Services\MapService.cs" />
     <Compile Include="Services\Navigation\BackService.cs" />
     <Compile Include="Services\Navigation\IBackService.cs" />
     <Compile Include="Services\Navigation\Interfaces\INavigationService.cs" />
@@ -134,10 +142,12 @@
     <Compile Include="Services\Navigation\Interfaces\IRememberPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IRegisterPageView.cs" />
     <Compile Include="Services\Navigation\Interfaces\IMasterPageView.cs" />
-    <Compile Include="Services\Navigation\Views\ILoginPageView.cs" />
-    <Compile Include="Services\Navigation\Views\IPageViewNavigationBaseWithParameter.cs" />
+    <Compile Include="Services\Navigation\Interfaces\ILoginPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\INewCategoryPageView.cs" />
+    <Compile Include="Services\Navigation\Interfaces\IPageViewNavigationBaseWithParameter.cs" />
     <Compile Include="Services\Navigation\Views\LogOutPageView.cs" />
     <Compile Include="Services\Navigation\Views\MasterPageView.cs" />
+    <Compile Include="Services\Navigation\Views\NewCategoryPageView.cs" />
     <Compile Include="Services\Navigation\Views\NewRememberPageView.cs" />
     <Compile Include="Services\Navigation\Views\PageViewNavigationBase.cs" />
     <Compile Include="Services\Navigation\Views\RegisterPageView.cs" />
@@ -147,6 +157,7 @@
     <Compile Include="Services\RememberService.cs" />
     <Compile Include="Services\ScanService.cs" />
     <Compile Include="ViewModels\IViewModelBase.cs" />
+    <Compile Include="ViewModels\Categories\NewCategoryViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Remembers\CompleteRememberViewModel.cs" />
     <Compile Include="ViewModels\LocatorViewModel.cs" />
@@ -155,9 +166,9 @@
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\NotificationChangedBase.cs" />
-    <Compile Include="ViewModels\CategoryListViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\Partials\UserHeaderViewModel.cs" />
-    <Compile Include="ViewModels\RememberListViewModel.cs" />
+    <Compile Include="ViewModels\Remembers\RememberListViewModel.cs" />
     <Compile Include="ViewModels\Remembers\NewRememberViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -337,7 +348,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\RememberPage.xaml">
+    <EmbeddedResource Include="Pages\Remember\RememberPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -355,7 +366,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\RememberList.xaml">
+    <EmbeddedResource Include="Pages\Remember\RememberList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -386,6 +397,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtensionMethods\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Categories\NewCategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

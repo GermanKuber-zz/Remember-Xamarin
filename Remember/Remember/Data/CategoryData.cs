@@ -8,7 +8,7 @@ using SQLiteNetExtensions.Attributes;
 namespace Remember.Data
 {
 
-    public class CategoryModel
+    public class CategoryData
     {
 
 
@@ -42,6 +42,4 @@ namespace Remember.Data
 
         }
     }
-
-
 }

@@ -22,14 +22,14 @@ namespace Remember.Data
 
             _connection.CreateTable<Permission>();
             _connection.CreateTable<User>();
-            _connection.CreateTable<CategoryModel>();
+            _connection.CreateTable<CategoryData>();
             _connection.CreateTable<RememberData>();
         }
 
         public void ClearAllData()
         {
             // _connection.DeleteAll<User>();
-            _connection.DeleteAll<CategoryModel>();
+            _connection.DeleteAll<CategoryData>();
             _connection.DeleteAll<RememberData>();
         }
 
@@ -101,7 +101,7 @@ namespace Remember.Data
             var rememberRepository = App.Container.Resolve<IRememberRepository>();
             dataAccess.ClearAllData();
 
-            var comprasCoto = categoryRepository.Insert(new CategoryModel
+            var comprasCoto = categoryRepository.Insert(new CategoryData
             {
                 Name = "Compras Coto",
                 Order = 1,
@@ -150,7 +150,7 @@ namespace Remember.Data
                 Image = "http://www.recetaensaladacaesar.com/images/pasos/paso7.jpg"
             }).Result;
 
-            var comprasVerduleria = categoryRepository.Insert(new CategoryModel
+            var comprasVerduleria = categoryRepository.Insert(new CategoryData
             {
                 Name = "Compras Verduleria",
                 Order = 2,
@@ -191,7 +191,7 @@ namespace Remember.Data
 
 
 
-            var comprasFerreteria = categoryRepository.Insert(new CategoryModel
+            var comprasFerreteria = categoryRepository.Insert(new CategoryData
             {
                 Name = "Ferreteria",
                 Order = 2,

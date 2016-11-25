@@ -8,7 +8,7 @@ namespace Remember.Services.Navigation.Views
 {
 
 
-    public class RememberPageView : PageViewNavigationBaseWithParameter<RememberList, RememberListViewModel, CategoryModel>, IRememberPageView
+    public class RememberPageView : PageViewNavigationBaseWithParameter<RememberList, RememberListViewModel, CategoryData>, IRememberPageView
     {
         public RememberPageView(INavigationService navigationService) : base(navigationService)
         {

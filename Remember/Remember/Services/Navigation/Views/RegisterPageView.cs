@@ -6,7 +6,7 @@ using Remember.ViewModels;
 
 namespace Remember.Services.Navigation.Views
 {
-    public class RegisterPageView : PageViewNavigationBase<RegisterPage, RegisterViewModel, CategoryModel>, IRegisterPageView
+    public class RegisterPageView : PageViewNavigationBase<RegisterPage, RegisterViewModel, CategoryData>, IRegisterPageView
     {
         public RegisterPageView(INavigationService navigationService) : base(navigationService)
         {

@@ -8,7 +8,7 @@ namespace Remember.Repositories
 {
     public class RememberRepository : IRememberRepository
     {
-        public List<RememberData> GetAll(CategoryModel category, bool withChildren = false)
+        public List<RememberData> GetAll(CategoryData category, bool withChildren = false)
         {
             if (category == null)
                 throw new ArgumentNullException(nameof(category));
@@ -18,7 +18,7 @@ namespace Remember.Repositories
             }
         }
 
-        public Response<RememberData> Insert(CategoryModel category, RememberData data)
+        public Response<RememberData> Insert(CategoryData category, RememberData data)
         {
             if (category == null)
                 throw new ArgumentNullException(nameof(category));
@@ -51,7 +51,7 @@ namespace Remember.Repositories
             }
         }
 
-        public RememberData GetByExactName(CategoryModel category, string rememberName, bool withChildren = false)
+        public RememberData GetByExactName(CategoryData category, string rememberName, bool withChildren = false)
         {
             if (category == null)
                 throw new ArgumentNullException(nameof(category));

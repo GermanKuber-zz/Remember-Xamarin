@@ -8,7 +8,7 @@ using Remember.Services.Navigation.Interfaces;
 
 namespace Remember.ViewModels
 {
-    public class RegisterViewModel : ViewModelBase, INavigatedViewModel<CategoryModel>
+    public class RegisterViewModel : ViewModelBase, INavigatedViewModel<CategoryData>
     {
 
         private readonly IDialogService _dialogService;
@@ -199,8 +199,8 @@ namespace Remember.ViewModels
             throw new System.NotImplementedException();
         }
 
-        public CategoryModel Parameter { get; set; }
-        public void SetParameter(CategoryModel parameter)
+        public CategoryData Parameter { get; set; }
+        public void SetParameter(CategoryData parameter)
         {
             this.Parameter = parameter;
         }

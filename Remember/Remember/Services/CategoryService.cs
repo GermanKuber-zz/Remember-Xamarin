@@ -24,11 +24,11 @@ namespace Remember.Services
             _netService = netService;
         }
 
-        public List<CategoryModel> GetAll(bool withChildren = false)
+        public List<CategoryData> GetAll(bool withChildren = false)
         {
             return _categoryRepository.GetAll(withChildren);
         }
-        public List<CategoryModel> GetAll(string filterName, bool withChildren = false, bool local = false)
+        public List<CategoryData> GetAll(string filterName, bool withChildren = false, bool local = false)
         {
             if (local)
             {
@@ -43,7 +43,7 @@ namespace Remember.Services
             }
         }
 
-        public Response<CategoryModel> Insert(CategoryModel rememberZone)
+        public Response<CategoryData> Insert(CategoryData rememberZone)
         {
             return _categoryRepository.Insert(rememberZone);
         }

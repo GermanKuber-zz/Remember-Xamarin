@@ -5,6 +5,6 @@ namespace Remember.Services.Navigation.Interfaces
 {
     public interface IRememberPageView
     {
-        void Navigate(CategoryModel parameter);
+        void Navigate(CategoryData parameter);
     }
 }

@@ -16,10 +16,10 @@ namespace Remember.Data
         public bool Active { get; set; }
         public string Note { get; set; }
         public decimal Price { get; set; }
-        [ForeignKey(typeof(CategoryModel))]
+        [ForeignKey(typeof(CategoryData))]
         public int CategoryId { get; set; }
         [ManyToOne]
-        public CategoryModel Category { get; set; }
+        public CategoryData Category { get; set; }
 
 
         public override int GetHashCode()

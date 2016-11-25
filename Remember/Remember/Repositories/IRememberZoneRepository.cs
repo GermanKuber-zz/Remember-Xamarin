@@ -6,7 +6,7 @@ namespace Remember.Repositories
 {
     public interface ICategoryRepository
     {
-        List<CategoryModel> GetAll(bool withChildren = false);
-        Response<CategoryModel> Insert(CategoryModel rememberZone);
+        List<CategoryData> GetAll(bool withChildren = false);
+        Response<CategoryData> Insert(CategoryData rememberZone);
     }
 }

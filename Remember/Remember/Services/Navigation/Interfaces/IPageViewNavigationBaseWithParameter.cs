@@ -1,4 +1,4 @@
-﻿namespace Remember.Services.Navigation.Views
+﻿namespace Remember.Services.Navigation.Interfaces
 {
     public interface IPageViewNavigationBaseWithParameter<in TParameter>
     {

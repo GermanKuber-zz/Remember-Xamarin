@@ -9,7 +9,7 @@ using XLabs;
 
 namespace Remember.ViewModels.Remembers
 {
-    public class NewRememberViewModel : NotificationChangedBase, INavigatedViewModel<CategoryModel>
+    public class NewRememberViewModel : NotificationChangedBase, INavigatedViewModel<CategoryData>
     {
 
         public ICommand TakePictureCommand => new RelayCommand(TakePicture);
@@ -24,8 +24,8 @@ namespace Remember.ViewModels.Remembers
             }
         }
 
-        public CategoryModel Parameter { get; set; }
-        public void SetParameter(CategoryModel parameter)
+        public CategoryData Parameter { get; set; }
+        public void SetParameter(CategoryData parameter)
         {
             if (parameter == null)
                 throw new ArgumentNullException(nameof(parameter));

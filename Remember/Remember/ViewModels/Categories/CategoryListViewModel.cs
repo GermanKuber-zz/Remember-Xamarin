@@ -3,17 +3,17 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Remember.Data;
-using Remember.Models;
 using Remember.Services.Interfaces;
 using Remember.Services.Navigation.Interfaces;
 
-namespace Remember.ViewModels
+namespace Remember.ViewModels.Categories
 {
     public class CategoryListViewModel : ViewModelBase
     {
         private readonly ICategoryService _categoryService;
         private readonly ILoginService _loginService;
         private readonly IRememberPageView _rememberPageView;
+        private readonly INewCategoryPageView _newCategorypage;
 
         #region Properties
 
@@ -33,8 +33,8 @@ namespace Remember.ViewModels
             }
         }
 
-        private CategoryModel _categorySelected;
-        public CategoryModel CategorySelected
+        private CategoryData _categorySelected;
+        public CategoryData CategorySelected
         {
             get
             {
@@ -52,7 +52,7 @@ namespace Remember.ViewModels
                 }
             }
         }
-        public ObservableCollection<CategoryModel> CategoryList { get; set; }
+        public ObservableCollection<CategoryData> CategoryList { get; set; }
 
         public User LogedUser => _loginService.LogedUser;
 
@@ -67,7 +67,7 @@ namespace Remember.ViewModels
 
         private void NewCategory()
         {
-
+            _newCategorypage.Navigate(null);
         }
 
         public ICommand SelectCategoryCommand => new RelayCommand(SelectCategory);
@@ -86,20 +86,24 @@ namespace Remember.ViewModels
 
         #endregion
 
-        public CategoryListViewModel(ICategoryService categoryService, ILoginService loginService, IRememberPageView rememberPageView)
+        public CategoryListViewModel(ICategoryService categoryService,
+            ILoginService loginService,
+            IRememberPageView rememberPageView,
+            INewCategoryPageView newCategorypage)
         {
             _categoryService = categoryService;
             _loginService = loginService;
             _rememberPageView = rememberPageView;
+            _newCategorypage = newCategorypage;
 
             var response = this._categoryService.GetAll(true);
             LoadAll(response);
         }
 
-        private void LoadAll(List<CategoryModel> list)
+        private void LoadAll(List<CategoryData> list)
         {
             if (CategoryList == null)
-                CategoryList = new ObservableCollection<CategoryModel>();
+                CategoryList = new ObservableCollection<CategoryData>();
             else
                 CategoryList.Clear();
 

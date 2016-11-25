@@ -9,6 +9,7 @@ using Remember.Services.Navigation;
 using Remember.Services.Navigation.Interfaces;
 using Remember.Services.Navigation.Views;
 using Remember.ViewModels;
+using Remember.ViewModels.Categories;
 using Remember.ViewModels.Partials;
 using Remember.ViewModels.Remembers;
 using Xamarin.Forms;
@@ -57,7 +58,7 @@ namespace Remember
             Container.RegisterType<IRegisterPageView, RegisterPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IMasterPageView, MasterPageView>(new ContainerControlledLifetimeManager());
             Container.RegisterType<ILoginPageView, LoginPageView>(new ContainerControlledLifetimeManager());
-
+            Container.RegisterType<INewCategoryPageView, NewCategoryPageView>(new ContainerControlledLifetimeManager());
 
 
         }
@@ -85,8 +86,8 @@ namespace Remember
             Container.RegisterType<IProxyService, ProxyService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IBackService, BackService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IApplicationService, ApplicationService>(new ContainerControlledLifetimeManager());
-
-
+            Container.RegisterType<ICamareService, CamareService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IMapService, MapService>(new ContainerControlledLifetimeManager());
 
 
         }
@@ -103,6 +104,7 @@ namespace Remember
             Container.RegisterType<UserHeaderViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<CompleteRememberViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<NewCategoryViewModel>(new ContainerControlledLifetimeManager());
 
 
         }

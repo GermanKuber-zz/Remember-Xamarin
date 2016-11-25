@@ -24,7 +24,7 @@ namespace Remember.Services
             _netService = netService;
         }
 
-        public List<RememberModel> GetAll(CategoryModel category, bool local = false)
+        public List<RememberModel> GetAll(CategoryData category, bool local = false)
         {
             var list = _rememberRepository.GetAll(category);
             var temp = new List<RememberModel>();
@@ -39,7 +39,7 @@ namespace Remember.Services
             return temp;
         }
 
-        public List<RememberModel> GetAllNoCompleted(CategoryModel category, bool local = false)
+        public List<RememberModel> GetAllNoCompleted(CategoryData category, bool local = false)
         {
             return this.GetAll(category, local).Where(x => x.DebtCount > 0).ToList();
         }
@@ -53,7 +53,7 @@ namespace Remember.Services
             _rememberRepository.Update(model.RememberData);
         }
 
-        public RememberModel GetByExactName(CategoryModel category, string rememberName, bool local = false)
+        public RememberModel GetByExactName(CategoryData category, string rememberName, bool local = false)
         {
             var modelData = _rememberRepository.GetByExactName(category, rememberName);
             if (modelData != null)
@@ -62,7 +62,7 @@ namespace Remember.Services
                 return null;
 
         }
-        public List<RememberModel> GetAll(CategoryModel category, string filterName, bool local = false)
+        public List<RememberModel> GetAll(CategoryData category, string filterName, bool local = false)
         {
             if (local)
             {
@@ -83,12 +83,12 @@ namespace Remember.Services
             }
         }
 
-        public List<RememberModel> GetAllNoCompleted(CategoryModel category, string filterName, bool local = false)
+        public List<RememberModel> GetAllNoCompleted(CategoryData category, string filterName, bool local = false)
         {
             return this.GetAll(category, filterName, local).Where(x => x.DebtCount > 0).ToList();
         }
 
-        public Response<RememberModel> Insert(CategoryModel category, RememberModel remember)
+        public Response<RememberModel> Insert(CategoryData category, RememberModel remember)
         {
             var response = _rememberRepository.Insert(category, remember.RememberData);
             if (response.IsSuccess)

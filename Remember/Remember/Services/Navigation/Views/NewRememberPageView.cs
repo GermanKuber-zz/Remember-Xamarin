@@ -16,7 +16,7 @@ namespace Remember.Services.Navigation.Views
             _navigationService = navigationService;
         }
 
-        public void Navigate(CategoryModel parameter)
+        public void Navigate(CategoryData parameter)
         {
             _navigationService.Navigate<NewRememberPage>();
             var context = App.Container.Resolve<NewRememberViewModel>();

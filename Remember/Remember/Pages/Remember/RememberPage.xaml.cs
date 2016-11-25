@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Remember.Pages
+namespace Remember.Pages.Remember
 {
     public partial class RememberPage : ContentPage
     {

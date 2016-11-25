@@ -15,23 +15,23 @@ namespace Remember.Repositories
             _apiService = apiService;
         }
 
-        public List<CategoryModel> GetAll(bool withChildren = false)
+        public List<CategoryData> GetAll(bool withChildren = false)
         {
             using (var da = new DataAccess())
             {
-                var list = da.GetList<CategoryModel>(withChildren);
+                var list = da.GetList<CategoryData>(withChildren);
                 return list;
             }
         }
 
-        public Response<CategoryModel> Insert(CategoryModel model)
+        public Response<CategoryData> Insert(CategoryData model)
         {
             using (var da = new DataAccess())
             {
                 try
                 {
-                    da.Insert<CategoryModel>(model);
-                    return new Response<CategoryModel>
+                    da.Insert<CategoryData>(model);
+                    return new Response<CategoryData>
                     {
                         IsSuccess = true,
                         Result = model
@@ -39,7 +39,7 @@ namespace Remember.Repositories
                 }
                 catch (Exception ex)
                 {
-                    return new Response<CategoryModel>
+                    return new Response<CategoryData>
                     {
                         IsSuccess = false,
                         Message = ex.Message
